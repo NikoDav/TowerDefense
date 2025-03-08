@@ -25,6 +25,7 @@ public class DayNightCycle : MonoBehaviour
         }
         if(_currentTime >= _dayTime)
         {
+            _currentTime = 0;
             SwitchNight();
         }
     }

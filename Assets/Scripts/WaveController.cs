@@ -5,7 +5,7 @@ using System;
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] private List<MapConfigure> _maps;
+      [SerializeField] private List<MapConfigure> _maps;
       private GameObject _map;
       private List<Transform> _spawnPoints;
       private List<WaveConfigure> _waves;
