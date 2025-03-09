@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private void OnDaySwitched()
     {
         _waveController.AddWaveIndex();
+        _waveController.CheckReadyNextMap();
     }
 
     private void OnNightSwitched()

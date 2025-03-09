@@ -23,6 +23,8 @@ public class WaveController : MonoBehaviour
         _spawnPoints = _maps[index].SpawnPoints;
         _waves = _maps[index].Waves;
 
+        _currentWaveIndex = 0;
+
         _map.SetActive(true);
     }
 
@@ -43,6 +45,15 @@ public class WaveController : MonoBehaviour
     public void AddWaveIndex()
     {
         _currentWaveIndex++;
+    }
+
+    public void CheckReadyNextMap()
+    {
+        if(_currentWaveIndex == _waves.Count)
+        {
+            _currentMapIndex++;
+            InnitMap(_currentMapIndex);
+        }
     }
 
 }
