@@ -19,6 +19,10 @@ public class WaveController : MonoBehaviour
 
     private void InnitMap(int index)
     {
+        if(_map != null)
+        {
+            _map.SetActive(false);
+        }
         _map = _maps[index].Map;
         _spawnPoints = _maps[index].SpawnPoints;
         _waves = _maps[index].Waves;
