@@ -13,4 +13,9 @@ public class Enemy : MonoBehaviour
     {
         _navMeshAgent.SetDestination(_target.position);
     }
+
+    private void Start()
+    {
+        _target = FindObjectOfType<Castle>().transform;
+    }
 }

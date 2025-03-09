@@ -21,12 +21,12 @@ public class GameManager : MonoBehaviour
 
     private void OnDaySwitched()
     {
-
+        _waveController.AddWaveIndex();
     }
 
     private void OnNightSwitched()
     {
-        //SpawnEnemy
+        _waveController.SpawnEnemies();
         //ChangeUI
         //ChangeLight
         //ChangeAudio

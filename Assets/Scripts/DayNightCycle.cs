@@ -26,16 +26,18 @@ public class DayNightCycle : MonoBehaviour
         if(_currentTime >= _dayTime)
         {
             _currentTime = 0;
-            SwitchNight();
+            //SwitchNight();
         }
     }
 
+    [ContextMenu("Switch Day")]
     public void SwitchDay()
     {
         _state = DayNightStates.Day;
         _daySwitched?.Invoke();
     }
 
+    [ContextMenu("Switch Night")]
     public void SwitchNight()
     {
         _state = DayNightStates.Night;
