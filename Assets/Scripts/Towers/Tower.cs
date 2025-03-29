@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class Tower : MonoBehaviour
 {
@@ -11,8 +12,14 @@ public class Tower : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     private int _index;
     private Coroutine _meshSwitch;
+    private bool _isCanvasEnabled;
     const int _delay = 3;
 
+
+    private void Update()
+    {
+        CheckClick();
+    }
     [ContextMenu("LevelUp")]
     public void LevelUp()
     {
@@ -23,9 +30,35 @@ public class Tower : MonoBehaviour
         _meshSwitch = StartCoroutine(MeshSwitch());
     }
 
+    private void CheckClick()
+    {
+        if (Input.GetMouseButtonDown(0) && _isCanvasEnabled)
+        {
+            Debug.Log(EventSystem.current.IsPointerOverGameObject());
+            if(EventSystem.current.IsPointerOverGameObject() == false && isClickOnCanvas() == false)
+            {
+                _canvas.gameObject.SetActive(false);
+                _isCanvasEnabled = false;
+            }
+            else if(isClickOnCanvas())
+            {
+                _canvas.gameObject.SetActive(true);
+                _isCanvasEnabled = true;
+            }
+        }
+    }
+
+    private bool isClickOnCanvas()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
+        return RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePos);
+    }
+
     private void OnMouseDown()
     {
-        _canvas.gameObject.SetActive(true);
+        //_canvas.gameObject.SetActive(true);
+        //_isCanvasEnabled = true;
     }
 
     private IEnumerator MeshSwitch()
