@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Tower : MonoBehaviour
 {
     [SerializeField] private TowerConfig _towerConfig;
     [SerializeField] private MeshFilter _meshFilter;
+    [SerializeField] private TMP_Text _upgradePriceText;
+    [SerializeField] private Canvas _canvas;
     private int _index;
     private Coroutine _meshSwitch;
     const int _delay = 3;
@@ -16,7 +19,13 @@ public class Tower : MonoBehaviour
         if (_meshSwitch != null)
             return;
         _index++;
+        _upgradePriceText.text = _towerConfig.TowerLevels[_index].Cost.ToString();
         _meshSwitch = StartCoroutine(MeshSwitch());
+    }
+
+    private void OnMouseDown()
+    {
+        _canvas.gameObject.SetActive(true);
     }
 
     private IEnumerator MeshSwitch()
