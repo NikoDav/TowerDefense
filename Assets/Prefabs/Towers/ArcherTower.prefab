@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 244752469906867596}
   - component: {fileID: 4779095547232380893}
   - component: {fileID: 8605764067556058390}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1291736641127201759}
   - component: {fileID: 8423475974733347704}
   - component: {fileID: 8668348439610299631}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 3381169555958552660}
   - component: {fileID: 2644703654545911113}
   - component: {fileID: 7339927975144376717}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,6 +483,8 @@ MonoBehaviour:
   _meshFilter: {fileID: 5886936293549799511}
   _upgradePriceText: {fileID: 8668348439610299631}
   _canvas: {fileID: 9044371180194590888}
+  _levelUpBtn: {fileID: 8605764067556058390}
+  _sellBtn: {fileID: 7339927975144376717}
 --- !u!65 &1229670919
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -507,7 +509,7 @@ GameObject:
   - component: {fileID: 1697058971607458302}
   - component: {fileID: 8527294566686810523}
   - component: {fileID: 7520630374080887582}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +589,7 @@ GameObject:
   - component: {fileID: 3931680509553042601}
   - component: {fileID: 8329653331600683897}
   - component: {fileID: 37502681}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +701,7 @@ GameObject:
   - component: {fileID: 6286659702423632507}
   - component: {fileID: 6632684517972920106}
   - component: {fileID: 6558323569067182960}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

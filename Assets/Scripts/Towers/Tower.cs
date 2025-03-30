@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
@@ -10,12 +11,24 @@ public class Tower : MonoBehaviour
     [SerializeField] private MeshFilter _meshFilter;
     [SerializeField] private TMP_Text _upgradePriceText;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private Button _levelUpBtn;
+    [SerializeField] private Button _sellBtn;
     private int _index;
     private Coroutine _meshSwitch;
     private bool _isCanvasEnabled;
     const int _delay = 3;
 
+    private void OnEnable()
+    {
+        _levelUpBtn.onClick.AddListener(LevelUp);
+        _sellBtn.onClick.AddListener(Sell);
+    }
 
+    private void OnDisable()
+    {
+        _levelUpBtn.onClick.RemoveListener(LevelUp);
+        _sellBtn.onClick.RemoveListener(Sell);
+    }
     private void Update()
     {
         CheckClick();
@@ -28,6 +41,11 @@ public class Tower : MonoBehaviour
         _index++;
         _upgradePriceText.text = _towerConfig.TowerLevels[_index].Cost.ToString();
         _meshSwitch = StartCoroutine(MeshSwitch());
+    }
+
+    private void Sell()
+    {
+        Destroy(gameObject);
     }
 
     private void CheckClick()
