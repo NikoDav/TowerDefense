@@ -11616,9 +11616,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherTower
       objectReference: {fileID: 0}
-    - target: {fileID: 6697842747387925033, guid: c442de1478a1eed4e9e96304affd6be1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c442de1478a1eed4e9e96304affd6be1, type: 3}
