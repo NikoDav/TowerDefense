@@ -32,33 +32,26 @@ public class Tower : MonoBehaviour
 
     private void CheckClick()
     {
-        if (Input.GetMouseButtonDown(0) && _isCanvasEnabled)
+
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(EventSystem.current.IsPointerOverGameObject());
-            if(EventSystem.current.IsPointerOverGameObject() == false && isClickOnCanvas() == false)
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
+                if (hit.collider.gameObject == gameObject)
+                {
+                    _canvas.gameObject.SetActive(true);
+                }
+                else
+                {
+                    _canvas.gameObject.SetActive(false);
+                }
+            }
+            else
                 _canvas.gameObject.SetActive(false);
-                _isCanvasEnabled = false;
-            }
-            else if(isClickOnCanvas())
-            {
-                _canvas.gameObject.SetActive(true);
-                _isCanvasEnabled = true;
-            }
         }
-    }
-
-    private bool isClickOnCanvas()
-    {
-        Vector2 mousePos = Input.mousePosition;
-        RectTransform rectTransform = _canvas.GetComponent<RectTransform>();
-        return RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePos);
-    }
-
-    private void OnMouseDown()
-    {
-        //_canvas.gameObject.SetActive(true);
-        //_isCanvasEnabled = true;
     }
 
     private IEnumerator MeshSwitch()
