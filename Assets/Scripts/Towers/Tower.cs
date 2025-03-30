@@ -91,4 +91,10 @@ public class Tower : MonoBehaviour
         _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].FinalMesh;
         _meshSwitch = null;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 1, 0, 0.3f);
+        Gizmos.DrawSphere(transform.position, _towerConfig.TowerLevels[_index].Range);
+    }
 }
