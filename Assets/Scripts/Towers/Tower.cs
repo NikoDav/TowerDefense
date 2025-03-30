@@ -29,6 +29,11 @@ public class Tower : MonoBehaviour
         _levelUpBtn.onClick.RemoveListener(LevelUp);
         _sellBtn.onClick.RemoveListener(Sell);
     }
+
+    private void Start()
+    {
+        LevelUp();
+    }
     private void Update()
     {
         CheckClick();
@@ -37,8 +42,15 @@ public class Tower : MonoBehaviour
     public void LevelUp()
     {
         if (_meshSwitch != null)
+        {
             return;
+        }
         _index++;
+        if (_index+1 >= _towerConfig.TowerLevels.Count)
+        {
+            _levelUpBtn.gameObject.SetActive(false);
+        }
+        
         _upgradePriceText.text = _towerConfig.TowerLevels[_index].Cost.ToString();
         _meshSwitch = StartCoroutine(MeshSwitch());
     }
