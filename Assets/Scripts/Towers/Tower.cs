@@ -13,9 +13,13 @@ public class Tower : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Button _levelUpBtn;
     [SerializeField] private Button _sellBtn;
+    [SerializeField] private GameObject _bullet;
+    [SerializeField] private Transform _shootPoint;
     private int _index;
     private Coroutine _meshSwitch;
     private bool _isCanvasEnabled;
+    private bool _canShoot;
+    private Target _target;
     const int _delay = 3;
 
     private void OnEnable()
@@ -33,10 +37,12 @@ public class Tower : MonoBehaviour
     private void Start()
     {
         LevelUp();
+        _target = FindObjectOfType<Target>();
     }
     private void Update()
     {
         CheckClick();
+        ShootCheck();
     }
     [ContextMenu("LevelUp")]
     public void LevelUp()
@@ -58,6 +64,16 @@ public class Tower : MonoBehaviour
     private void Sell()
     {
         Destroy(gameObject);
+    }
+
+    private void ShootCheck()
+    {
+        Debug.Log(_towerConfig.TowerLevels[_index].Range);
+        if (Vector3.Distance(transform.position, _target.transform.position) < _towerConfig.TowerLevels[_index].Range && _canShoot)
+        {
+            Debug.Log("shoot");
+            StartCoroutine(Shoot());
+        }
     }
 
     private void CheckClick()
@@ -87,9 +103,20 @@ public class Tower : MonoBehaviour
     private IEnumerator MeshSwitch()
     {
         _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].BuildingMesh;
+        _canShoot = false;
         yield return new WaitForSeconds(_delay);
+        _canShoot = true;
         _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].FinalMesh;
         _meshSwitch = null;
+    }
+
+    private IEnumerator Shoot()
+    {
+        GameObject bullet = Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
+        bullet.transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _towerConfig.TowerLevels[_index].Range);
+        _canShoot = false;
+        yield return new WaitForSeconds(_towerConfig.TowerLevels[_index].FireRate);
+        _canShoot = true;
     }
 
     private void OnDrawGizmos()

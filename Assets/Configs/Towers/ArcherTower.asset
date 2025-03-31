@@ -15,29 +15,29 @@ MonoBehaviour:
   _towerLevels:
   - _cost: 1
     _dmg: 0
-    _range: 0
-    _fireRate: 0
+    _range: 8.57
+    _fireRate: 5
     _levelIndex: 0
     _buildingMesh: {fileID: 4300000, guid: ab4553bb4283e7840b83257b120cab3d, type: 3}
     _finalMesh: {fileID: 4300000, guid: dd09034417ae03142bd6a821cf15f334, type: 3}
   - _cost: 2
     _dmg: 0
-    _range: 0
-    _fireRate: 0
+    _range: 9
+    _fireRate: 5
     _levelIndex: 0
     _buildingMesh: {fileID: 4300000, guid: 02c5c88f348e9ec40bc9f75b4607bd6c, type: 3}
     _finalMesh: {fileID: 4300000, guid: 994adfa9dfe55f249a376f7cd9cdaa6c, type: 3}
   - _cost: 3
     _dmg: 0
     _range: 0
-    _fireRate: 0
+    _fireRate: 5
     _levelIndex: 0
     _buildingMesh: {fileID: 4300000, guid: 9f6f07a475fa44345b665fc56302aa27, type: 3}
     _finalMesh: {fileID: 4300000, guid: bc4bf5978b0527b488b736a0812f1a0d, type: 3}
   - _cost: 4
     _dmg: 0
     _range: 0
-    _fireRate: 0
+    _fireRate: 5
     _levelIndex: 0
     _buildingMesh: {fileID: 4300000, guid: 64b0502d91761814b93e8a024126bc0e, type: 3}
     _finalMesh: {fileID: 4300000, guid: 28f528ecfe682dc45aad11043b368dfa, type: 3}
