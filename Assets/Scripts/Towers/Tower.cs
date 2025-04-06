@@ -15,11 +15,12 @@ public class Tower : MonoBehaviour
     [SerializeField] private Button _sellBtn;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private LayerMask _enemyLayer;
     private int _index;
     private Coroutine _meshSwitch;
     private bool _isCanvasEnabled;
     private bool _canShoot;
-    private Target _target;
+    private GameObject _target;
     private float _elapsedTime;
     private Bullet _currentBullet;
     
@@ -40,13 +41,23 @@ public class Tower : MonoBehaviour
     private void Start()
     {
         LevelUp();
-        _target = FindObjectOfType<Target>();
     }
     private void Update()
     {
         CheckClick();
-        Shoot();
-        
+        if(_target != null)
+        {
+            Shoot();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Collider[] enemies = Physics.OverlapSphere(transform.position, _towerConfig.TowerLevels[_index].Range, _enemyLayer);
+        if(enemies.Length > 0)
+        {
+            _target = enemies[0].gameObject;
+        }
     }
     [ContextMenu("LevelUp")]
     public void LevelUp()

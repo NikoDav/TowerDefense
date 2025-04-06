@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4370366439113530156, guid: ca96a8b0943055f468b521838ad2a328, type: 3}
       propertyPath: m_Name
-      value: Mage
+      value: Mage Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4382194625054132620, guid: ca96a8b0943055f468b521838ad2a328, type: 3}
       propertyPath: m_Mesh
