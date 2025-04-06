@@ -15,7 +15,7 @@ MonoBehaviour:
   _towerLevels:
   - _cost: 1
     _dmg: 0
-    _range: 8.57
+    _range: 13.48
     _fireRate: 5
     _levelIndex: 0
     _buildingMesh: {fileID: 4300000, guid: ab4553bb4283e7840b83257b120cab3d, type: 3}
