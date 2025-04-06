@@ -8,9 +8,10 @@ public class Bullet : MonoBehaviour
 
     public float Speed { get => _speed; set => _speed = value; }
 
-    public void Fire(Target target)
+    private void Update()
     {
-        Debug.Log("Move");
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, _speed * Time.deltaTime);
+        transform.position += transform.forward * _speed * Time.deltaTime;
     }
+
+
 }

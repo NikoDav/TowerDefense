@@ -46,10 +46,6 @@ public class Tower : MonoBehaviour
     {
         CheckClick();
         Shoot();
-        if(_currentBullet != null)
-        {
-            _currentBullet.Fire(_target);
-        }
         
     }
     [ContextMenu("LevelUp")]
@@ -81,9 +77,11 @@ public class Tower : MonoBehaviour
         if (_elapsedTime >= _towerConfig.TowerLevels[_index].FireRate && Vector3.Distance(transform.position, _target.transform.position) < _towerConfig.TowerLevels[_index].Range)
         {
             _currentBullet = Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
+            _currentBullet.transform.LookAt(_target.transform);
             _elapsedTime = 0;
         }
     }
+
 
 
     private void CheckClick()
