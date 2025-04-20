@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnObject : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SpawnObject : MonoBehaviour
     [SerializeField] private LayerMask _collisionLayer;
     private Material _default;
     private bool _canSpawn = false;
+    private bool _isSpawned = false;
+    public event UnityAction _spawned;
 
     private void Start()
     {
@@ -18,18 +21,27 @@ public class SpawnObject : MonoBehaviour
     }
     private void Update()
     {
-        if(Physics.CheckSphere(transform.position, _radius, _collisionLayer))
+        if (!_isSpawned)
         {
-            _canSpawn = false;
-            _currentObject.material = _red;
+            Debug.Log(Physics.OverlapSphere(transform.position, _radius).Length);
+            if (Physics.CheckSphere(transform.position, _radius, _collisionLayer))
+            {
+                _canSpawn = false;
+                _currentObject.material = _red;
+            }
+            else if(Physics.OverlapSphere(transform.position, _radius).Length == 0){
+                _canSpawn = false;
+                _currentObject.material = _red;
+            }
+            else
+            {
+                _canSpawn = true;
+                _currentObject.material = _green;
+            }
         }
-        else
-        {
-            _canSpawn = true;
-            _currentObject.material = _green;
-        }
+        
     }
-    public void ChangeMaterial(bool canPlace)
+    /*public void ChangeMaterial(bool canPlace)
     {
         if (!_canSpawn)
             return;
@@ -42,9 +54,16 @@ public class SpawnObject : MonoBehaviour
             _currentObject.material = _red;
         }
     }
-
-    public void SetDefault()
+    */
+    public bool Place()
     {
-        _currentObject.material = default;
+        if(_canSpawn)
+        {
+            _currentObject.material = _default;
+            _isSpawned = true;
+            _spawned.Invoke();
+            return true;
+        }
+        return false;
     }
 }

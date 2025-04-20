@@ -16,6 +16,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private SpawnObject _spawnObject;
     private int _index;
     private Coroutine _meshSwitch;
     private bool _isCanvasEnabled;
@@ -30,18 +31,18 @@ public class Tower : MonoBehaviour
     {
         _levelUpBtn.onClick.AddListener(LevelUp);
         _sellBtn.onClick.AddListener(Sell);
+
+        _spawnObject._spawned += LevelUp;
     }
 
     private void OnDisable()
     {
         _levelUpBtn.onClick.RemoveListener(LevelUp);
         _sellBtn.onClick.RemoveListener(Sell);
+
+        _spawnObject._spawned -= LevelUp;
     }
 
-    private void Start()
-    {
-        LevelUp();
-    }
     private void Update()
     {
         CheckClick();
