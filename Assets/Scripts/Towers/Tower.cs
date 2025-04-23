@@ -24,7 +24,6 @@ public class Tower : MonoBehaviour
     private GameObject _target;
     private float _elapsedTime;
     private Bullet _currentBullet;
-    //private bool _showUI = false;
     
     const int _delay = 3;
 
@@ -100,7 +99,7 @@ public class Tower : MonoBehaviour
     private void CheckClick()
     {
 
-        if (Input.GetMouseButtonDown(0) && _index>0)
+        if (Input.GetMouseButtonUp(0) && _index>0 && _canShoot == false)
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;

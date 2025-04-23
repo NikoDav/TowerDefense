@@ -7,7 +7,7 @@ public class TowerSpawner : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _maxDistance;
-    [SerializeField] private SpawnObject _spawnObject;
+    private SpawnObject _spawnObject;
 
 
     private void Update()
@@ -23,6 +23,11 @@ public class TowerSpawner : MonoBehaviour
         }
 
         
+    }
+
+    public void SetSpawnObject(SpawnObject spawnObject)
+    {
+        _spawnObject = spawnObject;
     }
 
     private void FollowMouse()

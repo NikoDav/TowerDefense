@@ -10,9 +10,13 @@ public class SpawnObject : MonoBehaviour
     [SerializeField] private MeshRenderer _currentObject;
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _collisionLayer;
+    [SerializeField] private SpawnObjectType _spawnObjectType;
     private Material _default;
     private bool _canSpawn = false;
     private bool _isSpawned = false;
+
+    public SpawnObjectType SpawnObjectType { get => _spawnObjectType; set => _spawnObjectType = value; }
+
     public event UnityAction _spawned;
 
     private void Start()
