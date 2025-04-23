@@ -41,20 +41,7 @@ public class SpawnObject : MonoBehaviour
         }
         
     }
-    /*public void ChangeMaterial(bool canPlace)
-    {
-        if (!_canSpawn)
-            return;
-        if (canPlace)
-        {
-            _currentObject.material = _green;
-        }
-        else
-        {
-            _currentObject.material = _red;
-        }
-    }
-    */
+
     public bool Place()
     {
         if(_canSpawn)
