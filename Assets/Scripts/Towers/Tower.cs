@@ -100,7 +100,7 @@ public class Tower : MonoBehaviour
 
     private void CheckClick()
     {
-        if (Input.GetMouseButtonUp(0) && _index>0 && _canShoot == false)
+        if (Input.GetMouseButtonUp(0) && _index>0)
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
@@ -109,6 +109,7 @@ public class Tower : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
+                    Debug.Log("click");
                     if (_firstClick)
                         _firstClick = false;
                     else
