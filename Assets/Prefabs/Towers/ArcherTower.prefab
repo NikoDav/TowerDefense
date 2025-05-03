@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 5892296738519816441}
   - component: {fileID: 5886936293549799511}
   - component: {fileID: 5879915512272843655}
-  - component: {fileID: 4299477007156234855}
+  - component: {fileID: -5013971408925174806}
   - component: {fileID: 1229670919}
   - component: {fileID: 1948152123}
   m_Layer: 0
@@ -500,7 +500,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4299477007156234855
+--- !u!114 &-5013971408925174806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5894656975187528455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49eb977854904914b9964ec8334a1b8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 44a03b21d39e4094ea3284e8101878c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _towerConfig: {fileID: 11400000, guid: 451f50a8309c0c544986252bd23af4bd, type: 2}
@@ -518,12 +518,12 @@ MonoBehaviour:
   _canvas: {fileID: 9044371180194590888}
   _levelUpBtn: {fileID: 8605764067556058390}
   _sellBtn: {fileID: 7339927975144376717}
+  _spawnObject: {fileID: 1948152123}
   _bullet: {fileID: 9102566744204744329, guid: 543ede0a3d263db45b29d40b82d6e63e, type: 3}
   _shootPoint: {fileID: 6823001863490425908}
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 8
-  _spawnObject: {fileID: 1948152123}
 --- !u!65 &1229670919
 BoxCollider:
   m_ObjectHideFlags: 0

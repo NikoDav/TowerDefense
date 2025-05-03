@@ -7,23 +7,18 @@ using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] private TowerConfig _towerConfig;
+    [SerializeField] protected TowerConfig _towerConfig;
     [SerializeField] private MeshFilter _meshFilter;
     [SerializeField] private TMP_Text _upgradePriceText;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Button _levelUpBtn;
     [SerializeField] private Button _sellBtn;
-    [SerializeField] private Bullet _bullet;
-    [SerializeField] private Transform _shootPoint;
-    [SerializeField] private LayerMask _enemyLayer;
+
     [SerializeField] private SpawnObject _spawnObject;
-    private int _index;
+    protected int _index;
     private Coroutine _meshSwitch;
     private bool _firstClick = true;
-    private bool _canShoot;
-    private GameObject _target;
-    private float _elapsedTime;
-    private Bullet _currentBullet;
+
     
     const int _delay = 3;
 
@@ -44,24 +39,13 @@ public class Tower : MonoBehaviour
         _spawnObject._spawned -= LevelUp;
     }
 
-    private void Update()
+    protected void Update()
     {
         CheckClick();
-        if(_target != null)
-        {
-            Shoot();
-        }
+        
     }
 
 
-    private void FixedUpdate()
-    {
-        Collider[] enemies = Physics.OverlapSphere(transform.position, _towerConfig.TowerLevels[_index].Range, _enemyLayer);
-        if(enemies.Length > 0)
-        {
-            _target = enemies[0].gameObject;
-        }
-    }
     [ContextMenu("LevelUp")]
     public void LevelUp()
     {
@@ -85,16 +69,7 @@ public class Tower : MonoBehaviour
     }
 
     
-    private void Shoot()
-    {
-        _elapsedTime += Time.deltaTime;
-        if (_elapsedTime >= _towerConfig.TowerLevels[_index].FireRate && Vector3.Distance(transform.position, _target.transform.position) < _towerConfig.TowerLevels[_index].Range)
-        {
-            _currentBullet = Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
-            _currentBullet.transform.LookAt(_target.transform);
-            _elapsedTime = 0;
-        }
-    }
+
 
 
 
@@ -128,9 +103,7 @@ public class Tower : MonoBehaviour
     private IEnumerator MeshSwitch()
     {
         _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].BuildingMesh;
-        _canShoot = false;
         yield return new WaitForSeconds(_delay);
-        _canShoot = true;
         _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].FinalMesh;
         _meshSwitch = null;
     }
