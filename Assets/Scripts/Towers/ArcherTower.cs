@@ -11,10 +11,12 @@ public class ArcherTower : Tower
     private GameObject _target;
     private float _elapsedTime;
     private Bullet _currentBullet;
-
+    
     private void FixedUpdate()
     {
-        Collider[] enemies = Physics.OverlapSphere(transform.position, _towerConfig.TowerLevels[_index].Range, _enemyLayer);
+        ShootingTower tower = _towerConfig.TowerLevels[_index] as ShootingTower;
+
+        Collider[] enemies = Physics.OverlapSphere(transform.position, tower.Range, _enemyLayer);
         if (enemies.Length > 0)
         {
             _target = enemies[0].gameObject;
@@ -31,8 +33,9 @@ public class ArcherTower : Tower
     }
     private void Shoot()
     {
+        ShootingTower tower = _towerConfig.TowerLevels[_index] as ShootingTower;
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime >= _towerConfig.TowerLevels[_index].FireRate && Vector3.Distance(transform.position, _target.transform.position) < _towerConfig.TowerLevels[_index].Range)
+        if (_elapsedTime >= tower.FireRate && Vector3.Distance(transform.position, _target.transform.position) < _towerConfig.TowerLevels[_index].Range)
         {
             _currentBullet = Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
             _currentBullet.transform.LookAt(_target.transform);
@@ -40,5 +43,5 @@ public class ArcherTower : Tower
         }
     }
 
-
+    
 }
