@@ -19,7 +19,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private SpawnObject _spawnObject;
     private int _index;
     private Coroutine _meshSwitch;
-    private bool _isCanvasEnabled;
+    private bool _firstClick = true;
     private bool _canShoot;
     private GameObject _target;
     private float _elapsedTime;
@@ -29,6 +29,7 @@ public class Tower : MonoBehaviour
 
     private void OnEnable()
     {
+        CheckClick();
         _levelUpBtn.onClick.AddListener(LevelUp);
         _sellBtn.onClick.AddListener(Sell);
 
@@ -51,6 +52,7 @@ public class Tower : MonoBehaviour
             Shoot();
         }
     }
+
 
     private void FixedUpdate()
     {
@@ -98,7 +100,6 @@ public class Tower : MonoBehaviour
 
     private void CheckClick()
     {
-
         if (Input.GetMouseButtonUp(0) && _index>0 && _canShoot == false)
         {
             if (EventSystem.current.IsPointerOverGameObject())
@@ -108,7 +109,10 @@ public class Tower : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    _canvas.gameObject.SetActive(true);
+                    if (_firstClick)
+                        _firstClick = false;
+                    else
+                        _canvas.gameObject.SetActive(true);
                 }
                 else
                 {
