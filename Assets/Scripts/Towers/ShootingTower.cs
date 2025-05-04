@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "tower", menuName = "CreateShootingTowerLevel")]
+[CreateAssetMenu(fileName = "tower", menuName = "Tower/CreateShootingTowerLevel")]
 public class ShootingTower : TowerLevel
 {
     [SerializeField] private float _fireRate;

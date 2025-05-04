@@ -13,7 +13,6 @@ public class Tower : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Button _levelUpBtn;
     [SerializeField] private Button _sellBtn;
-
     [SerializeField] private SpawnObject _spawnObject;
     protected int _index;
     private Coroutine _meshSwitch;
