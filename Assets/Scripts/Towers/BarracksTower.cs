@@ -6,7 +6,13 @@ using UnityEngine.UI;
 public class BarracksTower : Tower
 {
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private List<Button> _buttons = new List<Button>();
+    [SerializeField] private List<SpawnTowerUI> _buttons = new List<SpawnTowerUI>();
     private float _elapsedTime;
+
+
+    private void Spawn()
+    {
+       
+    }
 
 }
