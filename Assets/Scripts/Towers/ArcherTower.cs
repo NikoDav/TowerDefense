@@ -35,7 +35,7 @@ public class ArcherTower : Tower
     {
         ShootingTower tower = _towerConfig.TowerLevels[_index] as ShootingTower;
         _elapsedTime += Time.deltaTime;
-        if (_elapsedTime >= tower.FireRate && Vector3.Distance(transform.position, _target.transform.position) < _towerConfig.TowerLevels[_index].Range)
+        if (_elapsedTime >= tower.FireRate && Vector3.Distance(transform.position, _target.transform.position) < tower.Range)
         {
             _currentBullet = Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
             _currentBullet.transform.LookAt(_target.transform);
@@ -43,5 +43,12 @@ public class ArcherTower : Tower
         }
     }
 
-    
+    private void OnDrawGizmos()
+    {
+        ShootingTower tower = _towerConfig.TowerLevels[_index] as ShootingTower;
+        Gizmos.color = new Color(0, 1, 0, 0.3f);
+        Gizmos.DrawSphere(transform.position, tower.Range);
+    }
+
+
 }
