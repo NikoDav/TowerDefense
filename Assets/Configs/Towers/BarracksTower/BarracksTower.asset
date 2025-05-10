@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984a377ec8d973149ae38f26707b3201, type: 3}
   m_Name: BarracksTower
   m_EditorClassIdentifier: 
-  _towerLevels: []
+  _towerLevels:
+  - {fileID: 11400000, guid: 2cd05d02dcd827d48a5fc11b68c51b72, type: 2}
+  - {fileID: 11400000, guid: 50520172fd08c8a459f29fb7957cd2b2, type: 2}
+  - {fileID: 11400000, guid: 3b4e17217659c0145927c0be1df8ee74, type: 2}
+  - {fileID: 11400000, guid: a3ae2f397c629e94bbb3e5d10b8ae7b2, type: 2}

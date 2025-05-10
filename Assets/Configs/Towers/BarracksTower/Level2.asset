@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8aee948ea03fa84ba85a2d863e43dd5, type: 3}
   m_Name: Level2
   m_EditorClassIdentifier: 
-  _cost: 0
-  _levelIndex: 0
-  _buildingMesh: {fileID: 0}
-  _finalMesh: {fileID: 0}
+  _cost: 250
+  _levelIndex: 1
+  _buildingMesh: {fileID: 4300000, guid: 98d49845aaf07a7459315a0453fe60ed, type: 3}
+  _finalMesh: {fileID: 4300000, guid: 7d453662dea4fe14ca37340c0eaeb18b, type: 3}
   _spawnDelay: 2
