@@ -5,12 +5,15 @@ using UnityEngine.AI;
 
 public class UnitAttack : MonoBehaviour
 {
+    [SerializeField] protected LayerMask _enemyLayer;
+
     protected int _damage;
     protected float _range;
     protected NavMeshAgent _agent;
-    protected GameObject _target;
+    protected Enemy _target;
     protected int _delay;
-    [SerializeField] protected LayerMask _enemyLayer;
+    protected int _elapsedTime;
+    
 
     public void Initialized(int damage, float range, NavMeshAgent agent, int delay)
     {

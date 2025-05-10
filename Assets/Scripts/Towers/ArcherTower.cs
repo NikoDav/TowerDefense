@@ -7,6 +7,7 @@ public class ArcherTower : Tower
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private LayerMask _enemyLayer;
+
     private bool _canShoot;
     private GameObject _target;
     private float _elapsedTime;
