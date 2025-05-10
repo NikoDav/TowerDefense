@@ -12,7 +12,7 @@ public class UnitBootstrap : MonoBehaviour
 
     private void Start()
     {
-        _unitAttack.Initialized(_unitConfig.Damage, _unitConfig.Range, _navMesh);
+        _unitAttack.Initialized(_unitConfig.Damage, _unitConfig.Range, _navMesh, _unitConfig.Delay);
         _unitHp.Initialized(_unitConfig.Hp);
     }
 }

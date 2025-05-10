@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 0
   _speed: 0
-  _range: 0
+  _range: 10
   _damage: 0
+  _delay: 0
