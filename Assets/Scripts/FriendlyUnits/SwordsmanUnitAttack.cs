@@ -17,7 +17,7 @@ public class SwordsmanUnitAttack : UnitAttack
         {
             Debug.Log("SetDestination");
             _agent.SetDestination(_target.transform.position);
-            if(Vector3.Distance(transform.position, _target.transform.position) <= 1)
+            if(Vector3.Distance(transform.position, _target.transform.position) <= 3.5)
             {
                 Debug.Log("Attack");
                 Attack();
@@ -31,6 +31,7 @@ public class SwordsmanUnitAttack : UnitAttack
         if(_elapsedTime>= _delay)
         {
             _target.TakeDamage(_damage);
+            _target.SetNewTarget(this.transform);
             _elapsedTime = 0;
         }
     }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7762c6ffe8a06148b227e5d1b4cdc64, type: 3}
   m_Name: Swordsman
   m_EditorClassIdentifier: 
-  _hp: 0
-  _speed: 0
+  _hp: 100
+  _speed: 3
   _range: 10
-  _damage: 0
-  _delay: 0
+  _damage: 10
+  _delay: 2

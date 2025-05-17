@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Castle : MonoBehaviour
+public class Castle : MonoBehaviour, IDamagable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _health;
+    public void TakeDamage(int dmg)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _health -= dmg;
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
