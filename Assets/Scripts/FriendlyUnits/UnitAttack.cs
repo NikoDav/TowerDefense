@@ -12,7 +12,7 @@ public class UnitAttack : MonoBehaviour
     protected NavMeshAgent _agent;
     protected Enemy _target;
     protected int _delay;
-    protected int _elapsedTime;
+    protected float _elapsedTime;
     
 
     public void Initialized(int damage, float range, NavMeshAgent agent, int delay)

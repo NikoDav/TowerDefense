@@ -9,4 +9,13 @@ public class UnitHealth : MonoBehaviour
     {
         _health = health;
     }
+
+    public void TakeDamage(int dmg)
+    {
+        _health -= dmg;
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
