@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 984a377ec8d973149ae38f26707b3201, type: 3}
-  m_Name: BarracksTower
+  m_Name: ArcherTowerLevelContainer
   m_EditorClassIdentifier: 
   _towerLevels:
-  - {fileID: 11400000, guid: 2cd05d02dcd827d48a5fc11b68c51b72, type: 2}
-  - {fileID: 11400000, guid: 50520172fd08c8a459f29fb7957cd2b2, type: 2}
-  - {fileID: 11400000, guid: 3b4e17217659c0145927c0be1df8ee74, type: 2}
-  - {fileID: 11400000, guid: a3ae2f397c629e94bbb3e5d10b8ae7b2, type: 2}
+  - {fileID: 11400000, guid: 620d982705a4a8f46b20647e159f0ddc, type: 2}
+  - {fileID: 11400000, guid: c1d51e443aad0104aa850fb07e363a15, type: 2}
+  - {fileID: 11400000, guid: 671d7648f5871ac4d8bbd400d626a366, type: 2}
+  - {fileID: 11400000, guid: 1b2219b72aaeff14399e9774c87271eb, type: 2}

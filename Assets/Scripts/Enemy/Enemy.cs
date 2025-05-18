@@ -6,10 +6,11 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _navMeshAgent;
-    [SerializeField] private Transform _target;
-    [SerializeField] private int _hp;
-    [SerializeField] private int _delay;
-    [SerializeField] private int _damage;
+    [SerializeField] private EnemyConfig _enemyConfig;
+    private int _hp;
+    private Transform _target;
+    private int _delay;
+    private int _damage;
     private float _elapsedTime;
 
 
@@ -33,6 +34,9 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _target = FindObjectOfType<Castle>().transform;
+        _hp = _enemyConfig.Hp;
+        _delay = _enemyConfig.Delay;
+        _damage = _enemyConfig.Damage;
     }
 
     public void TakeDamage(int amnt)

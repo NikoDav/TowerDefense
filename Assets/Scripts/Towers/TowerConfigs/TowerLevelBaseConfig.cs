@@ -2,7 +2,7 @@
 using System;
 
 
-public abstract class TowerLevel : ScriptableObject
+public abstract class TowerLevelBaseConfig : ScriptableObject
 {
     [SerializeField] private int _cost;
     [SerializeField] private int _levelIndex;

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] protected TowerConfig _towerConfig;
+    [SerializeField] protected TowerLevelContainer _towerConfig;
     [SerializeField] private MeshFilter _meshFilter;
     [SerializeField] private TMP_Text _upgradePriceText;
     [SerializeField] private Canvas _canvas;

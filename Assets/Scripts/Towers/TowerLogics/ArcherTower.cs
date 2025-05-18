@@ -15,7 +15,7 @@ public class ArcherTower : Tower
     
     private void FixedUpdate()
     {
-        ShootingTower tower = _towerConfig.TowerLevels[_index] as ShootingTower;
+        LevelShootingTowerConfig tower = _towerConfig.TowerLevels[_index] as LevelShootingTowerConfig;
 
         Collider[] enemies = Physics.OverlapSphere(transform.position, tower.Range, _enemyLayer);
         if (enemies.Length > 0)
@@ -34,7 +34,7 @@ public class ArcherTower : Tower
     }
     private void Shoot()
     {
-        ShootingTower tower = _towerConfig.TowerLevels[_index] as ShootingTower;
+        LevelShootingTowerConfig tower = _towerConfig.TowerLevels[_index] as LevelShootingTowerConfig;
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime >= tower.FireRate && Vector3.Distance(transform.position, _target.transform.position) < tower.Range)
         {
@@ -46,7 +46,7 @@ public class ArcherTower : Tower
 
     private void OnDrawGizmos()
     {
-        ShootingTower tower = _towerConfig.TowerLevels[_index] as ShootingTower;
+        LevelShootingTowerConfig tower = _towerConfig.TowerLevels[_index] as LevelShootingTowerConfig;
         Gizmos.color = new Color(0, 1, 0, 0.3f);
         Gizmos.DrawSphere(transform.position, tower.Range);
     }

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navMeshAgent: {fileID: 5765692368057685860}
-  _target: {fileID: 0}
+  _enemyConfig: {fileID: 11400000, guid: 142c548324aab704ca9c2457d13d31c7, type: 2}
 --- !u!195 &5765692368057685860
 NavMeshAgent:
   m_ObjectHideFlags: 0
