@@ -9,10 +9,11 @@ public class EnemyBootstrap : MonoBehaviour
     [SerializeField] private EnemyAttack _enemyAttack;
     [SerializeField] private NavMeshAgent _navMesh;
     [SerializeField] private EnemyHealth _enemyHp;
+    [SerializeField] private Animator _animator;
 
     private void Start()
     {
-        _enemyAttack.Initialized(_enemyConfig.Damage, _enemyConfig.Range, _navMesh, _enemyConfig.Delay, _enemyConfig.HitRange);
+        _enemyAttack.Initialized(_enemyConfig.Damage, _enemyConfig.Range, _navMesh, _enemyConfig.Delay, _enemyConfig.HitRange, _animator);
         _enemyHp.Initialize(_enemyConfig.Hp);
     }
 }

@@ -13,11 +13,12 @@ public abstract class EnemyAttack : MonoBehaviour
     protected float _elapsedTime;
     private float _range;
     private float _hitRange;
+    protected Animator _animator;
 
 
     private void Update()
     {
-        _navMeshAgent.SetDestination(_target.position);
+        
         if(_target == null)
         {
             _target = FindObjectOfType<Castle>().transform;
@@ -30,6 +31,7 @@ public abstract class EnemyAttack : MonoBehaviour
                 Attack();
             }
         }
+        _navMeshAgent.SetDestination(_target.position);
     }
 
     private void Start()
@@ -37,13 +39,14 @@ public abstract class EnemyAttack : MonoBehaviour
         _target = FindObjectOfType<Castle>().transform;
     }
 
-    public void Initialized(int damage, float range, NavMeshAgent agent, int delay, float hitRange)
+    public void Initialized(int damage, float range, NavMeshAgent agent, int delay, float hitRange, Animator animator)
     {
         _damage = damage;
         _range = range;
         _navMeshAgent = agent;
         _delay = delay;
         _hitRange = hitRange;
+        _animator = animator;
     }
 
     

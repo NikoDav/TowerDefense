@@ -11,6 +11,7 @@ public class FootSoldier : EnemyAttack
         {
             IDamagable opponent = _target.GetComponent<IDamagable>();
             opponent.TakeDamage(_damage);
+            _animator.SetTrigger("Hit");
             _elapsedTime = 0;
         }
     }
