@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Enemy enemy))
+        if(other.TryGetComponent(out EnemyHealth enemy))
         {
             enemy.TakeDamage(_damage);
             Destroy(gameObject);

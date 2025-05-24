@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public abstract class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent _navMeshAgent;
-    [SerializeField] private EnemyConfig _enemyConfig;
-    protected int _hp;
+    private NavMeshAgent _navMeshAgent;
+    private EnemyConfig _enemyConfig;
     protected Transform _target;
     protected int _delay;
     protected int _damage;
     protected float _elapsedTime;
+    private float _range;
+    private float _hitRange;
 
 
     private void Update()
@@ -23,10 +24,10 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(transform.position, _target.transform.position) <= 1)
+            if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
             {
                 Debug.Log("Attack");
-                //Attack();
+                Attack();
             }
         }
     }
@@ -34,24 +35,25 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _target = FindObjectOfType<Castle>().transform;
-        _hp = _enemyConfig.Hp;
-        _delay = _enemyConfig.Delay;
-        _damage = _enemyConfig.Damage;
     }
 
-    public void TakeDamage(int amnt)
+    public void Initialized(int damage, float range, NavMeshAgent agent, int delay, float hitRange)
     {
-        _hp -= amnt;
-        if(_hp <= 0)
-        {
-            Destroy(gameObject);
-        }
+        _damage = damage;
+        _range = range;
+        _navMeshAgent = agent;
+        _delay = delay;
+        _hitRange = hitRange;
     }
+
+    
 
     public void SetNewTarget(Transform unit)
     {
         _target = unit;
     }
+
+    public abstract void Attack();
 
  
 }

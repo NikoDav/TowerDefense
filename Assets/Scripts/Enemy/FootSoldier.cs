@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FootSoldier : Enemy
+public class FootSoldier : EnemyAttack
 {
-    private void Attack()
+    public override void Attack()
     {
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime >= _delay)

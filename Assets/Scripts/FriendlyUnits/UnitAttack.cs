@@ -10,7 +10,7 @@ public abstract class UnitAttack : MonoBehaviour
     protected int _damage;
     protected float _range;
     protected NavMeshAgent _agent;
-    protected Enemy _target;
+    protected EnemyHealth _target;
     protected int _delay;
     protected float _elapsedTime;
     protected float _hitRange;
@@ -31,7 +31,7 @@ public abstract class UnitAttack : MonoBehaviour
         if (enemies.Length > 0 && _target == null)
         {
             Debug.Log("SetTarget");
-            _target = enemies[0].gameObject.GetComponent<Enemy>();
+            _target = enemies[0].gameObject.GetComponent<EnemyHealth>();
         }
 
         if (_target != null)

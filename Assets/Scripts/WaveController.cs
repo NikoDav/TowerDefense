@@ -35,11 +35,11 @@ public class WaveController : MonoBehaviour
     public void SpawnEnemies()
     {
         int enemiesAmount = _waves[_currentWaveIndex].EnemiesAmount;
-        List<Enemy> enemies = _waves[_currentWaveIndex].Enemies;
+        List<EnemyAttack> enemies = _waves[_currentWaveIndex].Enemies;
 
         for (int i = 0; i < enemiesAmount; i++)
         {
-            Enemy newEnemy = enemies[UnityEngine.Random.Range(0, _waves[_currentWaveIndex].Enemies.Count)];
+            EnemyAttack newEnemy = enemies[UnityEngine.Random.Range(0, _waves[_currentWaveIndex].Enemies.Count)];
             Vector3 randomSpawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].transform.position;
 
             Instantiate(newEnemy, randomSpawnPoint, Quaternion.identity);
