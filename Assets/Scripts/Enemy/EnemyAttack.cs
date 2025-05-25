@@ -41,6 +41,7 @@ public abstract class EnemyAttack : MonoBehaviour
         {
             _navMeshAgent.speed = originalSpeed;
         }
+        transform.LookAt(_target.transform);
     }
 
     private void Start()

@@ -45,6 +45,9 @@ public abstract class UnitAttack : MonoBehaviour
                 Debug.Log("Attack");
                 Attack();
             }
+
+            transform.LookAt(_target.transform);
+
         }
     }
 
