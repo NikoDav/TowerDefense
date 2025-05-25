@@ -12,6 +12,7 @@ public class SwordsmanUnitAttack : UnitAttack
         {
             _target.TakeDamage(_damage);
             _target.SetNewTarget(this.transform);
+            _animator.SetTrigger("Hit");
             _elapsedTime = 0;
         }
     }

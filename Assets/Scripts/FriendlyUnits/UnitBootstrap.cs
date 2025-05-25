@@ -9,10 +9,11 @@ public class UnitBootstrap : MonoBehaviour
     [SerializeField] private UnitAttack _unitAttack;
     [SerializeField] private UnitHealth _unitHp;
     [SerializeField] private NavMeshAgent _navMesh;
+    [SerializeField] protected Animator _animator;
 
     private void Start()
     {
-        _unitAttack.Initialized(_unitConfig.Damage, _unitConfig.Range, _navMesh, _unitConfig.Delay, _unitConfig.HitRange);
+        _unitAttack.Initialized(_unitConfig.Damage, _unitConfig.Range, _navMesh, _unitConfig.Delay, _unitConfig.HitRange, _animator);
         _unitHp.Initialized(_unitConfig.Hp);
     }
 }

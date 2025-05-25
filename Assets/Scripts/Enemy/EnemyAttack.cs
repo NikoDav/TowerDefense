@@ -5,21 +5,22 @@ using UnityEngine.AI;
 
 public abstract class EnemyAttack : MonoBehaviour
 {
-    private NavMeshAgent _navMeshAgent;
     private EnemyConfig _enemyConfig;
+    private float _range;
+
+    protected NavMeshAgent _navMeshAgent;
     protected Transform _target;
     protected int _delay;
     protected int _damage;
     protected float _elapsedTime;
-    private float _range;
-    private float _hitRange;
+    protected float _hitRange;
     protected Animator _animator;
 
 
     private void Update()
     {
-        
-        if(_target == null)
+        float originalSpeed = _navMeshAgent.speed;
+        if (_target == null)
         {
             _target = FindObjectOfType<Castle>().transform;
         }
@@ -32,6 +33,14 @@ public abstract class EnemyAttack : MonoBehaviour
             }
         }
         _navMeshAgent.SetDestination(_target.position);
+        if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
+        {
+            _navMeshAgent.speed = 0;
+        }
+        else
+        {
+            _navMeshAgent.speed = originalSpeed;
+        }
     }
 
     private void Start()

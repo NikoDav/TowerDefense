@@ -6,6 +6,7 @@ public class FootSoldier : EnemyAttack
 {
     public override void Attack()
     {
+        
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime >= _delay)
         {
@@ -14,6 +15,8 @@ public class FootSoldier : EnemyAttack
             _animator.SetTrigger("Hit");
             _elapsedTime = 0;
         }
+
+        
     }
 
 }

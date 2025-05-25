@@ -14,15 +14,17 @@ public abstract class UnitAttack : MonoBehaviour
     protected int _delay;
     protected float _elapsedTime;
     protected float _hitRange;
+    protected Animator _animator;
     
 
-    public void Initialized(int damage, float range, NavMeshAgent agent, int delay, float hitRange)
+    public void Initialized(int damage, float range, NavMeshAgent agent, int delay, float hitRange, Animator animator)
     {
         _damage = damage;
         _range = range;
         _agent = agent;
         _delay = delay;
         _hitRange = hitRange;
+        _animator = animator;
     }
 
     private void Update()
