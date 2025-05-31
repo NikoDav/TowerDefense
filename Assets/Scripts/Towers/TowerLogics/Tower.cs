@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Tower : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Tower : MonoBehaviour
     private Coroutine _meshSwitch;
     private bool _firstClick = true;
 
+    public event UnityAction Clicked;
     
     const int _delay = 3;
     
@@ -46,7 +48,7 @@ public class Tower : MonoBehaviour
 
 
     [ContextMenu("LevelUp")]
-    public void LevelUp()
+    public virtual void LevelUp()
     {
         if (_meshSwitch != null)
         {
@@ -87,7 +89,10 @@ public class Tower : MonoBehaviour
                     if (_firstClick)
                         _firstClick = false;
                     else
+                    {
                         _canvas.gameObject.SetActive(true);
+                        Clicked?.Invoke();
+                    }  
                 }
                 else
                 {
