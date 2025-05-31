@@ -253,13 +253,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b8741ac8b8038469a43997fb5aea14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerConfig: {fileID: 11400000, guid: 451f50a8309c0c544986252bd23af4bd, type: 2}
+  _towerConfig: {fileID: 11400000, guid: 206e00e4da585bf40be475237f9e9923, type: 2}
   _meshFilter: {fileID: 1509786583499190061}
   _upgradePriceText: {fileID: 4399285948340618133}
   _canvas: {fileID: 4090746287693637586}
   _levelUpBtn: {fileID: 3615439881154769516}
   _sellBtn: {fileID: 2350287617332059895}
   _spawnObject: {fileID: 4990357514070730305}
+  _spawnPoint: {fileID: 0}
+  _buttons: []
 --- !u!65 &4990357514554318205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -292,7 +294,7 @@ MonoBehaviour:
   _collisionLayer:
     serializedVersion: 2
     m_Bits: 63
-  _spawnObjectType: 1
+  _spawnObjectType: 3
 --- !u!1 &1720511060619348668
 GameObject:
   m_ObjectHideFlags: 0
