@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SpawnTowerUI : MonoBehaviour
@@ -12,6 +14,23 @@ public class SpawnTowerUI : MonoBehaviour
     [SerializeField] private TMP_Text _label;
 
     public GameObject Unit { get => _unit; set => _unit = value; }
+
+    public event UnityAction<GameObject> Clicked;
+
+    private void OnEnable()
+    {
+        _button.onClick.AddListener(SendClickedEvent);
+    }
+
+    private void OnDisable()
+    {
+        _button.onClick.RemoveListener(SendClickedEvent);
+    }
+
+    private void SendClickedEvent()
+    {
+        Clicked?.Invoke(_unit);
+    }
 
     public void SetInetractable(bool isActive)
     {

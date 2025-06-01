@@ -8,6 +8,8 @@ public class BarracksTower : Tower
     [SerializeField] private Transform _spawnPoint;
     private float _elapsedTime;
 
+    public Transform SpawnPoint { get => _spawnPoint; set => _spawnPoint = value; }
+
     public void OnEnable()
     {
         base.OnEnable();
@@ -24,12 +26,12 @@ public class BarracksTower : Tower
     public void OnClicked()
     {
         FindObjectOfType<UnitSelector>().Click(_index);
-        FindObjectOfType<UnitSelector>().ActiveScrollView(true);
+        FindObjectOfType<UnitSelector>().ActiveScrollView(true, _spawnPoint);
     }
 
     public void OnDeactivate()
     {
-        FindObjectOfType<UnitSelector>().ActiveScrollView(false);
+        FindObjectOfType<UnitSelector>().ActiveScrollView(false, null);
     }
 
 

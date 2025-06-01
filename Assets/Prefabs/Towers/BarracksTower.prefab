@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013500132675388238}
   m_Layer: 0
-  m_Name: ShootPoint
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996650344513087258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 5.06, z: 0.18}
+  m_LocalPosition: {x: 0.24, y: 1.06, z: -4.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -260,8 +260,7 @@ MonoBehaviour:
   _levelUpBtn: {fileID: 3615439881154769516}
   _sellBtn: {fileID: 2350287617332059895}
   _spawnObject: {fileID: 4990357514070730305}
-  _spawnPoint: {fileID: 0}
-  _buttons: []
+  _spawnPoint: {fileID: 2013500132675388238}
 --- !u!65 &4990357514554318205
 BoxCollider:
   m_ObjectHideFlags: 0
