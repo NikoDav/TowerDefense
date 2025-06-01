@@ -52,7 +52,7 @@ public class SpawnObject : MonoBehaviour
         {
             _currentObject.material = _default;
             _isSpawned = true;
-            _spawned.Invoke();
+            _spawned?.Invoke();
             return true;
         }
         return false;

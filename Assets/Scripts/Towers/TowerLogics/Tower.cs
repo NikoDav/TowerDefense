@@ -20,10 +20,11 @@ public class Tower : MonoBehaviour
     private bool _firstClick = true;
 
     public event UnityAction Clicked;
-    
+    public event UnityAction Deactivate;
+
     const int _delay = 3;
     
-    private void OnEnable()
+    public void OnEnable()
     {
         CheckClick();
         _levelUpBtn.onClick.AddListener(LevelUp);
@@ -32,7 +33,7 @@ public class Tower : MonoBehaviour
         _spawnObject._spawned += LevelUp;
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         _levelUpBtn.onClick.RemoveListener(LevelUp);
         _sellBtn.onClick.RemoveListener(Sell);
@@ -69,11 +70,6 @@ public class Tower : MonoBehaviour
         Destroy(gameObject);
     }
 
-    
-
-
-
-
     private void CheckClick()
     {
         if (Input.GetMouseButtonUp(0) && _index>0)
@@ -97,10 +93,14 @@ public class Tower : MonoBehaviour
                 else
                 {
                     _canvas.gameObject.SetActive(false);
+                    Deactivate?.Invoke();
                 }
             }
             else
+            {
                 _canvas.gameObject.SetActive(false);
+                Deactivate?.Invoke();
+            }
         }
     }
 
