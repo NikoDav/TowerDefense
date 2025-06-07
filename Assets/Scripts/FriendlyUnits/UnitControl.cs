@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class UnitControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private NavMeshAgent _navMesh;
+    private Transform _target;
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        CheckClick();
+    }
+    private void CheckClick()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                _target = hit.transform;
+                _navMesh.SetDestination(_target.position);
+            }
+        }
     }
 }

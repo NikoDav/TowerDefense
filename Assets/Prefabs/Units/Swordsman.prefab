@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4700876153663159454}
   - component: {fileID: 4700876153663159455}
   - component: {fileID: 4700876153663159452}
+  - component: {fileID: -1847130820690338436}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   _unitAttack: {fileID: 4700876153663159454}
   _unitHp: {fileID: 4700876153663159455}
   _navMesh: {fileID: 4700876153663159452}
+  _animator: {fileID: 0}
 --- !u!114 &4700876153663159454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +103,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-1847130820690338436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700876153663159453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be24299097e8b34e81e0a4cbc787a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _navMesh: {fileID: 4700876153663159452}
 --- !u!1001 &4700876155335223482
 PrefabInstance:
   m_ObjectHideFlags: 0
