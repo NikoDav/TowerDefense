@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7994282938094812369}
   - component: {fileID: 7994282938094812370}
   - component: {fileID: 6044026167705942970}
+  - component: {fileID: 8902739978873428038}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -84,6 +85,7 @@ MonoBehaviour:
   _unitAttack: {fileID: 6044026167705942970}
   _unitHp: {fileID: 7994282938094812369}
   _navMesh: {fileID: 7994282938094812370}
+  _animator: {fileID: 0}
 --- !u!114 &7994282938094812369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +137,19 @@ MonoBehaviour:
     m_Bits: 8
   _arrow: {fileID: 7174408509294938736, guid: 543ede0a3d263db45b29d40b82d6e63e, type: 3}
   _shootPoint: {fileID: 1671635188}
+--- !u!65 &8902739978873428038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994282938094812371}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6102371, y: 3.3107681, z: 2.5543914}
+  m_Center: {x: 0.06980896, y: 1.6393862, z: -0.1163466}
 --- !u!1001 &7794901871986159015
 PrefabInstance:
   m_ObjectHideFlags: 0
