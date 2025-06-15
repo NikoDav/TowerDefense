@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 7783526044759529278}
   - component: {fileID: 3258493171626601376}
   - component: {fileID: 7944627693631297974}
+  - component: {fileID: -6592391449752010284}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -338,3 +339,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6102371, y: 5.272249, z: 2.5543914}
   m_Center: {x: 0.06980896, y: 2.6201267, z: -0.1163466}
+--- !u!114 &-6592391449752010284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783526044759529279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be24299097e8b34e81e0a4cbc787a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _navMesh: {fileID: 7783526044759529278}

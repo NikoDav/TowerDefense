@@ -13,10 +13,10 @@ public class UnitControl : MonoBehaviour
 
     private void Update()
     {
-        if (_clickSelf == false)
-            checkSelected();
-        else
-            checkClick();
+        //if (_clickSelf == false)
+            //checkSelected();
+        //else
+            //checkClick();
     }
     private void checkClick()
     {
@@ -49,5 +49,16 @@ public class UnitControl : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Select(bool select)
+    {
+        _clickSelf = select;
+    }
+
+    public void SetDestination(Vector3 targetPos)
+    {
+        _navMesh.SetDestination(targetPos);
+        _clickSelf = false;
     }
 }

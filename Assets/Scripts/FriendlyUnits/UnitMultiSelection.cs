@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UnitMultiSelection : MonoBehaviour
 {
     private Vector2 _startPos;
     private Vector2 _endPos;
     private bool _isSelecting;
-    private List<UnitControl> _unitsSelected;
+    private List<UnitControl> _unitsSelected = new List<UnitControl>();
 
 
     private void Update()
@@ -16,10 +17,12 @@ public class UnitMultiSelection : MonoBehaviour
         {
             _startPos = Input.mousePosition;
             _isSelecting = true;
+            checkClick();
         }
         else if (Input.GetMouseButtonUp(0))
         {
             _isSelecting = false;
+            SelectUnits();
         }
         if (_isSelecting)
         {
@@ -55,5 +58,39 @@ public class UnitMultiSelection : MonoBehaviour
     private Rect GetScreenRect(Vector2 a, Vector2 b)
     {
         return new Rect(Mathf.Min(a.x, b.x), Screen.height - Mathf.Max(a.y, b.y), Mathf.Abs(a.x - b.x), Mathf.Abs(a.y - b.y));
+    }
+
+    private void SelectUnits()
+    {
+        _unitsSelected.Clear();
+        foreach(var unit in FindObjectsOfType<UnitControl>())
+        {
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
+            screenPos.y = Screen.height - screenPos.y;
+            Rect selectionRect = GetScreenRect(_startPos, _endPos);
+            if(selectionRect.Contains(screenPos, true))
+            {
+                unit.Select(true);
+                _unitsSelected.Add(unit);
+            }
+            else
+            {
+                unit.Select(false);
+            }
+        }
+    }
+
+    private void checkClick()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            foreach(UnitControl unit in _unitsSelected)
+            {
+                unit.SetDestination(hit.transform.position);
+            }
+        }
     }
 }
