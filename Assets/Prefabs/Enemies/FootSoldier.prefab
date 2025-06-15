@@ -349,6 +349,8 @@ GameObject:
   - component: {fileID: 119332596}
   - component: {fileID: 119332592}
   - component: {fileID: 26184659255065557}
+  - component: {fileID: 3072849137912554666}
+  - component: {fileID: 7671168557956182392}
   m_Layer: 3
   m_Name: FootSoldier
   m_TagString: Untagged
@@ -450,3 +452,38 @@ MonoBehaviour:
   _enemyConfig: {fileID: 11400000, guid: 2fa7a99b36b60834a845a75cb4b1530c, type: 2}
   _enemyAttack: {fileID: 119332592}
   _navMesh: {fileID: 3636531960243625202}
+  _enemyHp: {fileID: 3072849137912554666}
+  _animator: {fileID: 7671168557956182392}
+--- !u!114 &3072849137912554666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636531960243625203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13412c8f9de1c41af470b415d4ae24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAttack: {fileID: 119332592}
+--- !u!95 &7671168557956182392
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636531960243625203}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c9857259f3cf4343b88d93d01e694f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

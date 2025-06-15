@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6044026167705942970}
   - component: {fileID: 8902739978873428038}
   - component: {fileID: -4414018796438207895}
+  - component: {fileID: 670022861}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -86,7 +87,7 @@ MonoBehaviour:
   _unitAttack: {fileID: 6044026167705942970}
   _unitHp: {fileID: 7994282938094812369}
   _navMesh: {fileID: 7994282938094812370}
-  _animator: {fileID: 0}
+  _animator: {fileID: 670022861}
 --- !u!114 &7994282938094812369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +165,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navMesh: {fileID: 7994282938094812370}
+--- !u!95 &670022861
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7994282938094812371}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46a1d64d5f20e2b4bb47f307bc7dd417, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &7794901871986159015
 PrefabInstance:
   m_ObjectHideFlags: 0
