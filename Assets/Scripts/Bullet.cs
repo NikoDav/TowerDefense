@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private int _damage;
+    [SerializeField] private ShotAudio _shotAudio;
 
     public float Speed { get => _speed; set => _speed = value; }
 
@@ -19,7 +20,7 @@ public class Bullet : MonoBehaviour
         if(other.TryGetComponent(out EnemyHealth enemy))
         {
             enemy.TakeDamage(_damage);
-            Destroy(gameObject);
+            Instantiate(_shotAudio);
         }
     }
 

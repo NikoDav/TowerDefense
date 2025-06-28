@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _damage: 10
+  _shotAudio: {fileID: 742518263139095283, guid: 148ec3744f01b1949a3d34ce818fe741, type: 3}
 --- !u!65 &-1321738768669092001
 BoxCollider:
   m_ObjectHideFlags: 0

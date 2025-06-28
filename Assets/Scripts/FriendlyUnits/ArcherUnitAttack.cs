@@ -13,10 +13,11 @@ public class ArcherUnitAttack : UnitAttack
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime >= _delay)
         {
+            _elapsedTime = 0;
             _currentArrow = Instantiate(_arrow, _shootPoint.position, Quaternion.identity);
             _currentArrow.transform.LookAt(_target.transform);
             _target.SetNewTarget(this.transform);
-            _elapsedTime = 0;
+            
         }
 
         if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
