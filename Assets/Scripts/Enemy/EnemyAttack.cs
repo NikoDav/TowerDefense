@@ -33,14 +33,14 @@ public abstract class EnemyAttack : MonoBehaviour
             }
         }
         _navMeshAgent.SetDestination(_target.position);
-        if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
+      /*  if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
         {
             _navMeshAgent.speed = 0;
         }
         else
         {
             _navMeshAgent.speed = originalSpeed;
-        }
+        }*/
         transform.LookAt(_target.transform);
     }
 

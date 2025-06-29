@@ -14,6 +14,7 @@ public class EnemyBootstrap : MonoBehaviour
     private void Start()
     {
         _enemyAttack.Initialized(_enemyConfig.Damage, _enemyConfig.Range, _navMesh, _enemyConfig.Delay, _enemyConfig.HitRange, _animator);
+        _navMesh.stoppingDistance = _enemyConfig.HitRange;
         _enemyHp.Initialize(_enemyConfig.Hp);
     }
 }

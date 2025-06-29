@@ -19,8 +19,10 @@ public class Bullet : MonoBehaviour
     {
         if(other.TryGetComponent(out EnemyHealth enemy))
         {
+            Debug.Log("shot fired");
             enemy.TakeDamage(_damage);
             Instantiate(_shotAudio);
+            Destroy(gameObject);
         }
     }
 

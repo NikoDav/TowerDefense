@@ -14,6 +14,7 @@ public class ArcherUnitAttack : UnitAttack
         if (_elapsedTime >= _delay)
         {
             _elapsedTime = 0;
+            Debug.LogError("attack");
             _currentArrow = Instantiate(_arrow, _shootPoint.position, Quaternion.identity);
             _currentArrow.transform.LookAt(_target.transform);
             _target.SetNewTarget(this.transform);
