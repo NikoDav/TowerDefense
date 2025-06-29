@@ -28,20 +28,24 @@ public abstract class EnemyAttack : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
             {
-                Debug.Log("Attack");
                 Attack();
             }
         }
         _navMeshAgent.SetDestination(_target.position);
-      /*  if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
-        {
-            _navMeshAgent.speed = 0;
-        }
-        else
-        {
-            _navMeshAgent.speed = originalSpeed;
-        }*/
-        transform.LookAt(_target.transform);
+        /*  if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
+          {
+              _navMeshAgent.speed = 0;
+          }
+          else
+          {
+              _navMeshAgent.speed = originalSpeed;
+          }*/
+        //transform.LookAt(_target.transform, Vector3.up);
+        Vector3 targetPos = _target.transform.position;
+        Vector3 direction = targetPos - transform.position;
+        direction.y = 0;
+        Quaternion tragetRot = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, tragetRot, Time.deltaTime * 1);
     }
 
     private void Start()
