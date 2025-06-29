@@ -14,6 +14,7 @@ public class UnitBootstrap : MonoBehaviour
     private void Start()
     {
         _unitAttack.Initialized(_unitConfig.Damage, _unitConfig.Range, _navMesh, _unitConfig.Delay, _unitConfig.HitRange, _animator);
+        _navMesh.stoppingDistance = _unitConfig.HitRange;
         _unitHp.Initialized(_unitConfig.Hp);
     }
 }

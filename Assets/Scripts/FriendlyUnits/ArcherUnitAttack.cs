@@ -19,14 +19,6 @@ public class ArcherUnitAttack : UnitAttack
             _target.SetNewTarget(this.transform);
             
         }
-
-        if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
-        {
-            _agent.speed = 0;
-        }
-        else
-        {
-            _agent.speed = originalSpeed;
-        }
+       
     }
 }
