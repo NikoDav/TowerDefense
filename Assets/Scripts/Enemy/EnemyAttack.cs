@@ -23,6 +23,7 @@ public abstract class EnemyAttack : MonoBehaviour
         if (_target == null)
         {
             _target = FindObjectOfType<Castle>().transform;
+            _animator.SetTrigger("Idle");
         }
         else
         {
