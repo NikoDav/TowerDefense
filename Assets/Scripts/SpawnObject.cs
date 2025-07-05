@@ -11,6 +11,7 @@ public class SpawnObject : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _collisionLayer;
     [SerializeField] private SpawnObjectType _spawnObjectType;
+    [SerializeField] private AudioSource _audioSource;
     private Material _default;
     private bool _canSpawn = false;
     private bool _isSpawned = false;
@@ -52,6 +53,7 @@ public class SpawnObject : MonoBehaviour
         {
             _currentObject.material = _default;
             _isSpawned = true;
+            _audioSource.Play();
             _spawned?.Invoke();
             return true;
         }

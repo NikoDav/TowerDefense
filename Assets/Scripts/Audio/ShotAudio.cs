@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShotAudio : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private bool _playOnAwake;
     private void Start()
     {
         _audioSource.pitch = Random.Range(0.5f, 1.5f);
