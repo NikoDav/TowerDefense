@@ -7719,6 +7719,7 @@ MonoBehaviour:
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+  _playAudio: {fileID: 0}
 --- !u!4 &1113692374
 Transform:
   m_ObjectHideFlags: 0
