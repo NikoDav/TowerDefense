@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class WaveController : MonoBehaviour
 {
     [SerializeField] private List<MapConfigure> _maps;
+    [SerializeField] private NavMeshSurface _navMeshSurface;
     private GameObject _map;
     private List<Transform> _spawnPoints;
     private List<WaveConfigure> _waves;
@@ -32,6 +33,7 @@ public class WaveController : MonoBehaviour
         _currentWaveIndex = 0;
 
         _map.SetActive(true);
+        _navMeshSurface.BuildNavMesh();
     }
 
     public void SpawnEnemies()

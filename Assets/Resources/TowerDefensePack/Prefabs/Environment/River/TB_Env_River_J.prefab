@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33429999460176360}
   - component: {fileID: 23176042689362294}
   - component: {fileID: 6344409290785395686}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: TB_Env_River_J
   m_TagString: Untagged
   m_Icon: {fileID: 0}
