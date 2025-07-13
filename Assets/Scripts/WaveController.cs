@@ -81,6 +81,11 @@ public class WaveController : MonoBehaviour
         {
             Destroy(tower.gameObject);
         }
+        var arrows = FindObjectsOfType<Bullet>();
+        foreach (var arrow in arrows)
+        {
+            Destroy(arrow.gameObject);
+        }
     }
 
 }
