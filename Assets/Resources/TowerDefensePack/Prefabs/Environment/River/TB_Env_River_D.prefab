@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4190515800988784}
   - component: {fileID: 33760386232872910}
   - component: {fileID: 23700539039990912}
+  - component: {fileID: -2794202096196473823}
   m_Layer: 0
   m_Name: TB_Env_River_D
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-2794202096196473823
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145508146563192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.000351, y: 1.0000021, z: 10.000342}
+  m_Center: {x: 0.00016784668, y: -0.5000006, z: -0.00017166138}

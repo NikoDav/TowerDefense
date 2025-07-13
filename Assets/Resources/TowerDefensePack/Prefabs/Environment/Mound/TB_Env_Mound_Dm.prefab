@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 4738678315976454}
   - component: {fileID: 33617525331386032}
   - component: {fileID: 23627776770151640}
-  m_Layer: 0
+  - component: {fileID: 1327905109599786973}
+  m_Layer: 6
   m_Name: TB_Env_Mound_Dm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4738678315976454
 Transform:
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1327905109599786973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436782418696976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 3.0000002, z: 29.999998}
+  m_Center: {x: 0, y: 1.4999999, z: 0}

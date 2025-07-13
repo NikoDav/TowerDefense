@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5548579e4c37e8e41a18fc96b9fd397b, type: 3}
+  m_Name: Grounds
+  m_EditorClassIdentifier: 
+  Tiles:
+  - _group: Grounds
+    _tileID: -1938197199
+    Default: {fileID: 1821374989505724, guid: 1a51fe95cc8cc3a4ca8f62728430ca9f, type: 3}
+    Randoms:
+    - {fileID: 1933440745349800, guid: b355c3687ea5b204b9de4b2f6c7ddca5, type: 3}
+    - {fileID: 1240222732930312, guid: fc0e85a1478e4314baa490f67446a1ed, type: 3}
+    Random: 1
+    _name: New Tile
+    Rules: []
+  - _group: Grounds
+    _tileID: 1171648132
+    Default: {fileID: 1014224152500586, guid: 6e2139f20958e144dbceba44efb32355, type: 3}
+    Randoms:
+    - {fileID: 1679809396307624, guid: c4b6f895e376de246b1a9c9ec2a64bf2, type: 3}
+    - {fileID: 1714713568135502, guid: 8831ef64044a9844cb8327ffd92c40b5, type: 3}
+    - {fileID: 1003043302636566, guid: bb0047da546c3034b9370e2043499968, type: 3}
+    Random: 1
+    _name: New Tile
+    Rules: []
+  - _group: Grounds
+    _tileID: 259899948
+    Default: {fileID: 1106741066563502, guid: 341b429a3478ae64493e7744c90631c7, type: 3}
+    Randoms:
+    - {fileID: 1870239576644356, guid: 34b534f504e9de743a843329c92620b4, type: 3}
+    Random: 1
+    _name: New Tile
+    Rules: []
+  - _group: Grounds
+    _tileID: -425796556
+    Default: {fileID: 1772169374577590, guid: 9216b18bc350a1f4494d2af06ae884fd, type: 3}
+    Randoms:
+    - {fileID: 1352147571377558, guid: ee4f36965f060b847a8647ea86a19fdb, type: 3}
+    Random: 1
+    _name: New Tile
+    Rules: []
+  - _group: Grounds
+    _tileID: -414172563
+    Default: {fileID: 1232698016045124, guid: 198ab120d8d841845b33f664234bf035, type: 3}
+    Randoms:
+    - {fileID: 1985371176695494, guid: e743ac3c54ab21b47b8340fe84b65834, type: 3}
+    Random: 1
+    _name: New Tile
+    Rules: []
+  - _group: Grounds
+    _tileID: -1081697503
+    Default: {fileID: 1785924377913262, guid: b8ef1c719809c214093da99bc78eb2d4, type: 3}
+    Randoms:
+    - {fileID: 1002465828442168, guid: 2b20928c46b7b4845801bbbc17ae48e1, type: 3}
+    - {fileID: 1640664416707308, guid: f76c20910487bda4286357383f6709d5, type: 3}
+    Random: 1
+    _name: New Tile
+    Rules: []

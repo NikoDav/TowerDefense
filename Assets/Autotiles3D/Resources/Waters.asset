@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5548579e4c37e8e41a18fc96b9fd397b, type: 3}
+  m_Name: Waters
+  m_EditorClassIdentifier: 
+  Tiles:
+  - _group: Waters
+    _tileID: -1909331803
+    Default: {fileID: 1337541966584626, guid: f0a1e08d33653a94e855d1d3c078f66a, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: 762522697
+    Default: {fileID: 1474454760586928, guid: ab2095c7bb9452748855ad4d4d3d770a, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: -1299488170
+    Default: {fileID: 1061005575149678, guid: 9b7c3ef09ca82304fb874b5da377ef84, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: 1730522909
+    Default: {fileID: 1145508146563192, guid: de711274fcba33a46b8eafa252ec3691, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: 985919632
+    Default: {fileID: 1123842308514474, guid: 93e11c7cce847a44f93139a81fd1cfbb, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: -75817599
+    Default: {fileID: 1688304401169880, guid: e59c6b3c4c09fef4f8f7c222fddb7581, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: 743318515
+    Default: {fileID: 1251791527969962, guid: 0a423a4c9a1a41e4dad8d2a8a849b66f, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: 627752388
+    Default: {fileID: 1299438031393968, guid: a00649bcc0eb5464eaf67a7db026803d, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: 1336846474
+    Default: {fileID: 1067384730719212, guid: 01c6a9d4e7891904db032c6a9b57b001, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: -539469400
+    Default: {fileID: 1355649725690588, guid: 418117b77c4214149ba448c4ac674383, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: -503331701
+    Default: {fileID: 1466357006398888, guid: 0df6f0600cb9f674cb3bc2477a0fbc20, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
+  - _group: Waters
+    _tileID: -206994103
+    Default: {fileID: 1943553811464758, guid: bfec0a21b0fbb5345a7a01580e91a320, type: 3}
+    Randoms: []
+    Random: 0
+    _name: New Tile
+    Rules: []
