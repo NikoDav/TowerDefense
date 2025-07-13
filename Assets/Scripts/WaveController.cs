@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 
 public class WaveController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class WaveController : MonoBehaviour
         if(_map != null)
         {
             _map.SetActive(false);
+            ScreenClear();
         }
         _map = _maps[index].Map;
         _spawnPoints = _maps[index].SpawnPoints;
@@ -57,6 +59,25 @@ public class WaveController : MonoBehaviour
         {
             _currentMapIndex++;
             InnitMap(_currentMapIndex);
+        }
+    }
+
+    private void ScreenClear()
+    {
+        var enemies = FindObjectsOfType<EnemyHealth>();
+        foreach(var enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+        var units = FindObjectsOfType<UnitHealth>();
+        foreach (var unit in units)
+        {
+            Destroy(unit.gameObject);
+        }
+        var towers = FindObjectsOfType<SpawnObject>();
+        foreach (var tower in towers)
+        {
+            Destroy(tower.gameObject);
         }
     }
 

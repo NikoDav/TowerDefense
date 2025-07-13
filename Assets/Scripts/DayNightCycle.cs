@@ -9,6 +9,7 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private float _dayTime;
     [SerializeField] private DayNightStates _state;
     [SerializeField] private Transform _light;
+    [SerializeField] private int _switchTimeDuration;
 
     public event UnityAction _daySwitched;
     public event UnityAction _nightSwitched;
@@ -26,7 +27,12 @@ public class DayNightCycle : MonoBehaviour
         if(_currentTime >= _dayTime)
         {
             _currentTime = 0;
-            //SwitchNight();
+            SwitchNight();
+        }
+
+        if (FindObjectOfType<EnemyHealth>() == null && _state == DayNightStates.Night)
+        {
+            SwitchDay();
         }
     }
 
@@ -34,6 +40,7 @@ public class DayNightCycle : MonoBehaviour
     public void SwitchDay()
     {
         _state = DayNightStates.Day;
+        StartCoroutine(SwitchTime(Quaternion.Euler(34, -22, 10)));
         _daySwitched?.Invoke();
     }
 
@@ -41,8 +48,21 @@ public class DayNightCycle : MonoBehaviour
     public void SwitchNight()
     {
         _state = DayNightStates.Night;
+        StartCoroutine(SwitchTime(Quaternion.Euler(-13, -19, 28)));
         _nightSwitched?.Invoke();
     }
 
+    private IEnumerator SwitchTime(Quaternion targetRotation)
+    {
+        Quaternion startRotation = _light.transform.rotation;
+        float elapsedTime = 0;
+        while(elapsedTime <= _switchTimeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            _light.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime / _switchTimeDuration);
+            yield return null;
+        }
+        _light.transform.rotation = targetRotation;
+    }
     
 }

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Wave 2
   m_EditorClassIdentifier: 
   _enemies:
-  - {fileID: 5765692368057685859, guid: 0a1c5586cfd44604489d4e6f5b7a0b6e, type: 3}
-  - {fileID: 5765692368057685859, guid: 0a1c5586cfd44604489d4e6f5b7a0b6e, type: 3}
+  - {fileID: 119332592, guid: 75528e25964badf408f7e3b9138bfe02, type: 3}
   _enemiesAmount: 5
