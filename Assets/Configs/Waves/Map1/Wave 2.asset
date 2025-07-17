@@ -15,3 +15,4 @@ MonoBehaviour:
   _enemies:
   - {fileID: 119332592, guid: 75528e25964badf408f7e3b9138bfe02, type: 3}
   _enemiesAmount: 5
+  _reward: 300

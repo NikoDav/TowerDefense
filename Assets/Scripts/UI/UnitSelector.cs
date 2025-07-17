@@ -7,6 +7,7 @@ public class UnitSelector : MonoBehaviour
 {
     [SerializeField] private List<SpawnTowerUI> _buttons = new List<SpawnTowerUI>();
     [SerializeField] private GameObject _scrollView;
+    [SerializeField] private Money _money;
 
     private Transform _spawnPoint;
 

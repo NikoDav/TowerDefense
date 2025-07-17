@@ -12,6 +12,7 @@ public class SpawnTowerUI : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private Image _lockImage;
     [SerializeField] private TMP_Text _label;
+    [SerializeField] private int _cost;
 
     public GameObject Unit { get => _unit; set => _unit = value; }
 

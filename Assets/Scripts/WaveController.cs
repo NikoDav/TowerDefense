@@ -8,6 +8,7 @@ public class WaveController : MonoBehaviour
 {
     [SerializeField] private List<MapConfigure> _maps;
     [SerializeField] private NavMeshSurface _navMeshSurface;
+    [SerializeField] private Money _money;
     private GameObject _map;
     private List<Transform> _spawnPoints;
     private List<WaveConfigure> _waves;
@@ -52,7 +53,13 @@ public class WaveController : MonoBehaviour
 
     public void AddWaveIndex()
     {
+        WavePrize();
         _currentWaveIndex++;
+    }
+
+    private void WavePrize()
+    {
+        _money.addMoney(_waves[_currentWaveIndex].Reward);
     }
 
     public void CheckReadyNextMap()
