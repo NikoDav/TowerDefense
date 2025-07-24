@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f0e3771aea5bd4a88b5d4b82338d82, type: 3}
   m_Name: Druid
   m_EditorClassIdentifier: 
-  _hp: 0
-  _delay: 0
-  _damage: 0
+  _hp: 120
+  _delay: 4
+  _damage: 25
+  _range: 10
+  _hitRange: 5
