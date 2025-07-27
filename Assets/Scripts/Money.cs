@@ -7,15 +7,23 @@ public class Money : MonoBehaviour
 {
     [SerializeField] private int _money;
     [SerializeField] private TMP_Text _moneyText;
+    public static Money Instance;
 
-    public void SpendMoney(int money)
+    private void Start()
     {
-        _money -= money;
-        if (_money - money >= 0)
+        Instance = this;
+    }
+
+    public bool SpendMoney(int money)
+    {
+        if (_money - money < 0)
         {
-            _money = 0;
+
+            return false;
         }
+        _money -= money;
         _moneyText.text = "$" + _money;
+        return true;
     }
 
     public void addMoney(int money)

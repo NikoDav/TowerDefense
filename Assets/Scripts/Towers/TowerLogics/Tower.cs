@@ -41,6 +41,7 @@ public class Tower : MonoBehaviour
         _spawnObject._spawned -= LevelUp;
     }
 
+
     protected void Update()
     {
         CheckClick();
@@ -51,22 +52,26 @@ public class Tower : MonoBehaviour
     [ContextMenu("LevelUp")]
     public virtual void LevelUp()
     {
-        if (_meshSwitch != null)
+        if (Money.Instance.SpendMoney(_towerConfig.TowerLevels[_index].Cost))
         {
-            return;
+            if (_meshSwitch != null)
+            {
+                return;
+            }
+            _index++;
+            if (_index + 1 >= _towerConfig.TowerLevels.Count)
+            {
+                _levelUpBtn.gameObject.SetActive(false);
+            }
+
+            _upgradePriceText.text = _towerConfig.TowerLevels[_index].Cost.ToString();
+            _meshSwitch = StartCoroutine(MeshSwitch());
         }
-        _index++;
-        if (_index+1 >= _towerConfig.TowerLevels.Count)
-        {
-            _levelUpBtn.gameObject.SetActive(false);
-        }
-        
-        _upgradePriceText.text = _towerConfig.TowerLevels[_index].Cost.ToString();
-        _meshSwitch = StartCoroutine(MeshSwitch());
     }
 
     private void Sell()
     {
+        Money.Instance.addMoney(_towerConfig.TowerLevels[_index].Cost);
         Destroy(gameObject);
     }
 

@@ -16,7 +16,7 @@ public class SpawnTowerUI : MonoBehaviour
 
     public GameObject Unit { get => _unit; set => _unit = value; }
 
-    public event UnityAction<GameObject> Clicked;
+    public event UnityAction<GameObject, int> Clicked;
 
     private void OnEnable()
     {
@@ -30,7 +30,7 @@ public class SpawnTowerUI : MonoBehaviour
 
     private void SendClickedEvent()
     {
-        Clicked?.Invoke(_unit);
+        Clicked?.Invoke(_unit, _cost);
     }
 
     public void SetInetractable(bool isActive)

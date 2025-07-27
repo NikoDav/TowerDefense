@@ -7,7 +7,6 @@ public class UnitSelector : MonoBehaviour
 {
     [SerializeField] private List<SpawnTowerUI> _buttons = new List<SpawnTowerUI>();
     [SerializeField] private GameObject _scrollView;
-    [SerializeField] private Money _money;
 
     private Transform _spawnPoint;
 
@@ -27,9 +26,10 @@ public class UnitSelector : MonoBehaviour
         }
     }
 
-    private void Spawn(GameObject arg0)
+    private void Spawn(GameObject unit, int cost)
     {
-        Instantiate(arg0, _spawnPoint.position, _spawnPoint.rotation);
+        if(Money.Instance.SpendMoney(cost))
+            Instantiate(unit, _spawnPoint.position, _spawnPoint.rotation);
     }
 
     public void Click(int level)
