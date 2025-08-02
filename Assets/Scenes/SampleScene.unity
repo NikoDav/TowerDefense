@@ -18124,9 +18124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+  _zoomSpeed: 15
   _borderThickness: 100
-  misPos: {x: 0, y: 0}
-  maxPos: {x: 0, y: 0}
+  minPos: {x: -100, y: -100, z: 0}
+  maxPos: {x: 100, y: 100, z: 100}
 --- !u!1 &965182429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1003043302636566, guid: bb0047da546c3034b9370e2043499968, type: 3}
@@ -32589,14 +32590,12 @@ MonoBehaviour:
     - {fileID: 873626958}
     _waves:
     - {fileID: 11400000, guid: 37bd7a8b4c209294ead1f2456dbb1b92, type: 2}
-    - {fileID: 11400000, guid: 754f9e9f5d2b6c84a887942d89eaa854, type: 2}
   - _map: {fileID: 882664141}
     _spawnPoints:
     - {fileID: 1282801727}
     - {fileID: 210793998}
     _waves:
     - {fileID: 11400000, guid: 37bd7a8b4c209294ead1f2456dbb1b92, type: 2}
-    - {fileID: 11400000, guid: 754f9e9f5d2b6c84a887942d89eaa854, type: 2}
   - _map: {fileID: 1063490983}
     _spawnPoints:
     - {fileID: 978712295}

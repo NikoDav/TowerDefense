@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amnt)
     {
+        Debug.Log("enemy takes damage");
         _hp -= amnt;
         if(_hp <= 0)
         {

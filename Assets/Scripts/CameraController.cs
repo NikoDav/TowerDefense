@@ -5,9 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _zoomSpeed;
     [SerializeField] private float _borderThickness;
-    [SerializeField] private Vector2 misPos;
-    [SerializeField] private Vector2 maxPos;
+    [SerializeField] private Vector3 minPos;
+    [SerializeField] private Vector3 maxPos;
 
     private void Update()
     {
@@ -29,5 +30,15 @@ public class CameraController : MonoBehaviour
         {
             transform.position += Vector3.right * _speed * Time.deltaTime;
         }
+
+        Vector3 clampedPos = transform.position;
+        clampedPos.x = Mathf.Clamp(clampedPos.x, minPos.x, maxPos.x);
+        clampedPos.y = Mathf.Clamp(clampedPos.y, minPos.y, maxPos.y);
+        clampedPos.z = Mathf.Clamp(clampedPos.z, minPos.z, maxPos.z);
+        transform.position = clampedPos;
+
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        Vector3 newPos = transform.position + transform.forward * scroll * _zoomSpeed;
+        transform.position = newPos;
     }
 }

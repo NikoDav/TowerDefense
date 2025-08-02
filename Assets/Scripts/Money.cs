@@ -12,6 +12,12 @@ public class Money : MonoBehaviour
     private void Start()
     {
         Instance = this;
+#if UNITY_EDITOR
+        _money = 10000000;
+#else
+        _money = 400;
+#endif
+        _moneyText.text = "$" + _money;
     }
 
     public bool SpendMoney(int money)
