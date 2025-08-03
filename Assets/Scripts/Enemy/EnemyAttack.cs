@@ -64,12 +64,10 @@ public abstract class EnemyAttack : MonoBehaviour
         _animator = animator;
     }
 
-    
 
-    public void SetNewTarget(Transform unit)
-    {
-        _target = unit;
-    }
+
+    public abstract void SetNewTarget(Transform unit);
+    
 
     public abstract void Attack();
 

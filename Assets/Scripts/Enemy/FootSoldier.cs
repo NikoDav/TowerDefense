@@ -20,4 +20,8 @@ public class FootSoldier : EnemyAttack
         
     }
 
+    public override void SetNewTarget(Transform unit)
+    {
+        _target = unit;
+    }
 }

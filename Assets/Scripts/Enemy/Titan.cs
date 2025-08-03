@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Druid : EnemyAttack
+public class Titan : EnemyAttack
 {
     public override void Attack()
     {
@@ -12,8 +12,9 @@ public class Druid : EnemyAttack
         {
             IDamagable opponent = _target.GetComponent<IDamagable>();
             opponent.TakeDamage(_damage);
-            _animator.SetTrigger("Hit");
+            //_animator.SetTrigger("Hit");
             _elapsedTime = 0;
+            Debug.Log("attack");
         }
 
 
@@ -21,6 +22,6 @@ public class Druid : EnemyAttack
 
     public override void SetNewTarget(Transform unit)
     {
-        _target = unit;
+        
     }
 }
