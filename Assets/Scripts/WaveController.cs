@@ -8,6 +8,9 @@ public class WaveController : MonoBehaviour
 {
     [SerializeField] private List<MapConfigure> _maps;
     [SerializeField] private NavMeshSurface _navMeshSurface;
+    [SerializeField] private Transform _camera;
+    [SerializeField] private GameObject _winPanel;
+    private Vector3 _cameraStartPos;
     private GameObject _map;
     private List<Transform> _spawnPoints;
     private List<WaveConfigure> _waves;
@@ -16,6 +19,7 @@ public class WaveController : MonoBehaviour
 
     private void Start()
     {
+        _cameraStartPos = _camera.position;
         InnitMap(_currentMapIndex);
     }
 
@@ -29,6 +33,7 @@ public class WaveController : MonoBehaviour
         _map = _maps[index].Map;
         _spawnPoints = _maps[index].SpawnPoints;
         _waves = _maps[index].Waves;
+        _camera.position = _cameraStartPos;
 
         _currentWaveIndex = 0;
 
@@ -65,9 +70,22 @@ public class WaveController : MonoBehaviour
     {
         if(_currentWaveIndex == _waves.Count)
         {
-            _currentMapIndex++;
-            InnitMap(_currentMapIndex);
+            ShowWinPanel();
         }
+    }
+
+    private void ShowWinPanel()
+    {
+        Time.timeScale = 0;
+        _winPanel.SetActive(true);
+    }
+
+    public void SetNextMap()
+    {
+        Time.timeScale = 1;
+        _winPanel.SetActive(false);
+        _currentMapIndex++;
+        InnitMap(_currentMapIndex);
     }
 
     private void ScreenClear()

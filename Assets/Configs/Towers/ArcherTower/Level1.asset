@@ -17,5 +17,5 @@ MonoBehaviour:
   _buildingMesh: {fileID: 4300000, guid: ab4553bb4283e7840b83257b120cab3d, type: 3}
   _finalMesh: {fileID: 4300000, guid: dd09034417ae03142bd6a821cf15f334, type: 3}
   _fireRate: 1
-  _dmg: 25
+  _dmg: 30
   _range: 7
