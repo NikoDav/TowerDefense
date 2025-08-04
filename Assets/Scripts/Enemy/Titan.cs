@@ -12,7 +12,7 @@ public class Titan : EnemyAttack
         {
             IDamagable opponent = _target.GetComponent<IDamagable>();
             opponent.TakeDamage(_damage);
-            //_animator.SetTrigger("Hit");
+            _animator.SetTrigger("Hit");
             _elapsedTime = 0;
             Debug.Log("attack");
         }
