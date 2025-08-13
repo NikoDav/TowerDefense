@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DayNightCycle : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private DayNightStates _state;
     [SerializeField] private Transform _light;
     [SerializeField] private int _switchTimeDuration;
+    [SerializeField] private GameObject _dayUiObject;
+    [SerializeField] private GameObject _nightUiObject;
+    [SerializeField] private Image _dayImage;
 
     public event UnityAction _daySwitched;
     public event UnityAction _nightSwitched;
@@ -23,6 +27,7 @@ public class DayNightCycle : MonoBehaviour
         if(_state == DayNightStates.Day)
         {
             _currentTime += Time.deltaTime;
+            _dayImage.fillAmount = (_dayTime - _currentTime) / _dayTime;
         }
         if(_currentTime >= _dayTime)
         {
@@ -40,6 +45,8 @@ public class DayNightCycle : MonoBehaviour
     public void SwitchDay()
     {
         _state = DayNightStates.Day;
+        _dayUiObject.SetActive(true);
+        _nightUiObject.SetActive(false);
         StartCoroutine(SwitchTime(Quaternion.Euler(34, -22, 10)));
         _daySwitched?.Invoke();
     }
@@ -48,6 +55,8 @@ public class DayNightCycle : MonoBehaviour
     public void SwitchNight()
     {
         _state = DayNightStates.Night;
+        _dayUiObject.SetActive(false);
+        _nightUiObject.SetActive(true);
         StartCoroutine(SwitchTime(Quaternion.Euler(-13, -19, 28)));
         _nightSwitched?.Invoke();
     }

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private DayNightCycle _dayNightCycle;
     [SerializeField] private WaveController _waveController;
+    [SerializeField] private GameObject _shopPanel;
 
     private void OnEnable()
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDaySwitched()
     {
+        _shopPanel.SetActive(true);
         _waveController.AddWaveIndex();
         _waveController.CheckReadyNextMap();
     }
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void OnNightSwitched()
     {
         _waveController.SpawnEnemies();
+        _shopPanel.SetActive(false);
         //ChangeUI
         //ChangeLight
         //ChangeAudio
