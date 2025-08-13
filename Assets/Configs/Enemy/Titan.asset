@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Titan
   m_EditorClassIdentifier: 
   _hp: 500
-  _delay: 3
+  _delay: 6
   _damage: 200
   _range: 0
-  _hitRange: 6
+  _hitRange: 10
