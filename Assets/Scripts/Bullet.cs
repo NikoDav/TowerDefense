@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IDestroyable
 {
     [SerializeField] private float _speed;
     [SerializeField] private int _damage;
@@ -24,6 +24,10 @@ public class Bullet : MonoBehaviour
             Instantiate(_shotAudio);
             Destroy(gameObject);
         }
+    }
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
 }

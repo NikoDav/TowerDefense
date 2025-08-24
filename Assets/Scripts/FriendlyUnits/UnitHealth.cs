@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitHealth : MonoBehaviour, IDamagable
+public class UnitHealth : MonoBehaviour, IDamagable, IDestroyable
 {
     private int _health;
     public void Initialized(int health)
@@ -17,5 +17,10 @@ public class UnitHealth : MonoBehaviour, IDamagable
         {
             Destroy(gameObject);
         }
+    }
+    
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

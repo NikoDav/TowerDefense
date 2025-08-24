@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, IDestroyable
 {
     [SerializeField] private EnemyAttack _enemyAttack;
     private int _hp;
@@ -24,5 +24,9 @@ public class EnemyHealth : MonoBehaviour
     public void SetNewTarget(Transform unit)
     {
         _enemyAttack.SetNewTarget(unit);
+    }
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

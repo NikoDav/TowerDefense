@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.AI;
+using System.Linq;
 
 public class WaveController : MonoBehaviour
 {
@@ -92,14 +93,19 @@ public class WaveController : MonoBehaviour
 
     private void ScreenClear()
     {
-        var destroyableObjects = FindObjectsOfType<IDestroyable>();
+        var destroyableObjects = FindObjectsByInterface<IDestroyable>();
         foreach(var objectDestroy in destroyableObjects)
         {
             objectDestroy.Destroy();
         }
     }
 
-    
+    public static T[] FindObjectsByInterface<T>() where T : class
+    {
+        return GameObject.FindObjectsOfType<MonoBehaviour>()
+                        .OfType<T>()
+                        .ToArray();
+    }
 
 }
 

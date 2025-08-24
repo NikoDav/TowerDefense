@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SpawnObject : MonoBehaviour
+public class SpawnObject : MonoBehaviour, IDestroyable
 {
     [SerializeField] private Material _red;
     [SerializeField] private Material _green;
@@ -58,5 +58,10 @@ public class SpawnObject : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
