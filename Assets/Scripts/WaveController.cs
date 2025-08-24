@@ -43,15 +43,17 @@ public class WaveController : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        int enemiesAmount = _waves[_currentWaveIndex].EnemiesAmount;
-        List<EnemyAttack> enemies = _waves[_currentWaveIndex].Enemies;
+        List<EnemySpawnList> enemies = _waves[_currentWaveIndex].Enemies;
 
-        for (int i = 0; i < enemiesAmount; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
-            EnemyAttack newEnemy = enemies[UnityEngine.Random.Range(0, _waves[_currentWaveIndex].Enemies.Count)];
-            Vector3 randomSpawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].transform.position;
+            EnemySpawnList newEnemySpawnList = enemies[i];
+            for(int j = 0; j < newEnemySpawnList.Amount; j++)
+            {
+                Vector3 randomSpawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].transform.position;
 
-            Instantiate(newEnemy, randomSpawnPoint, Quaternion.identity);
+                Instantiate(newEnemySpawnList.Enemy, randomSpawnPoint, Quaternion.identity);
+            }
         }
     }
 
@@ -90,27 +92,14 @@ public class WaveController : MonoBehaviour
 
     private void ScreenClear()
     {
-        var enemies = FindObjectsOfType<EnemyHealth>();
-        foreach(var enemy in enemies)
+        var destroyableObjects = FindObjectsOfType<IDestroyable>();
+        foreach(var objectDestroy in destroyableObjects)
         {
-            Destroy(enemy.gameObject);
-        }
-        var units = FindObjectsOfType<UnitHealth>();
-        foreach (var unit in units)
-        {
-            Destroy(unit.gameObject);
-        }
-        var towers = FindObjectsOfType<SpawnObject>();
-        foreach (var tower in towers)
-        {
-            Destroy(tower.gameObject);
-        }
-        var arrows = FindObjectsOfType<Bullet>();
-        foreach (var arrow in arrows)
-        {
-            Destroy(arrow.gameObject);
+            objectDestroy.Destroy();
         }
     }
+
+    
 
 }
 
