@@ -11,6 +11,7 @@ public class WaveController : MonoBehaviour
     [SerializeField] private NavMeshSurface _navMeshSurface;
     [SerializeField] private Transform _camera;
     [SerializeField] private GameObject _winPanel;
+
     private Vector3 _cameraStartPos;
     private GameObject _map;
     private List<Transform> _spawnPoints;
@@ -31,6 +32,7 @@ public class WaveController : MonoBehaviour
             _map.SetActive(false);
             ScreenClear();
         }
+
         _map = _maps[index].Map;
         _spawnPoints = _maps[index].SpawnPoints;
         _waves = _maps[index].Waves;
@@ -83,6 +85,7 @@ public class WaveController : MonoBehaviour
     private void ScreenClear()
     {
         var destroyableObjects = FindObjectsByInterface<IDestroyable>();
+
         foreach(var objectDestroy in destroyableObjects)
         {
             objectDestroy.Destroy();
@@ -96,21 +99,23 @@ public class WaveController : MonoBehaviour
                         .ToArray();
     }
     private IEnumerator SpawnEnemiesDelay()
+    {
+        List<EnemySpawnList> enemies = _waves[_currentWaveIndex].Enemies;
+
+        for (int i = 0; i < enemies.Count; i++)
         {
-            List<EnemySpawnList> enemies = _waves[_currentWaveIndex].Enemies;
+            EnemySpawnList newEnemySpawnList = enemies[i];
 
-            for (int i = 0; i < enemies.Count; i++)
+            for(int j = 0; j < newEnemySpawnList.Amount; j++)
             {
-                EnemySpawnList newEnemySpawnList = enemies[i];
-                for(int j = 0; j < newEnemySpawnList.Amount; j++)
-                {
-                    Vector3 randomSpawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].transform.position;
+                Vector3 randomSpawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].transform.position;
 
-                    Instantiate(newEnemySpawnList.Enemy, randomSpawnPoint, Quaternion.identity);
-                    yield return new WaitForSeconds(0.3f);
-                }
+                Instantiate(newEnemySpawnList.Enemy, randomSpawnPoint, Quaternion.identity);
+
+                yield return new WaitForSeconds(0.3f);
             }
         }
+    }
 }
 
 [Serializable]

@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Druid : EnemyAttack
 {
+    [SerializeField] private DruidVine _druidVine;
     public override void Attack()
     {
 
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime >= _delay)
         {
-            IDamagable opponent = _target.GetComponent<IDamagable>();
-            opponent.TakeDamage(_damage);
             _animator.SetTrigger("Hit");
             _elapsedTime = 0;
         }
@@ -22,5 +21,14 @@ public class Druid : EnemyAttack
     public override void SetNewTarget(Transform unit)
     {
         _target = unit;
+    }
+
+    public void AttackWithVines()
+    {
+        List<IDamagable> damagables = _druidVine.CheckTrigger();
+        foreach(IDamagable damagable in damagables)
+        {
+            damagable.TakeDamage(_damage);
+        }
     }
 }
