@@ -16,4 +16,4 @@ MonoBehaviour:
   _delay: 3
   _damage: 15
   _range: 5
-  _hitRange: 2
+  _hitRange: 5

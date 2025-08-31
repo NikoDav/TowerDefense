@@ -44,18 +44,7 @@ public class WaveController : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        List<EnemySpawnList> enemies = _waves[_currentWaveIndex].Enemies;
-
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            EnemySpawnList newEnemySpawnList = enemies[i];
-            for(int j = 0; j < newEnemySpawnList.Amount; j++)
-            {
-                Vector3 randomSpawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].transform.position;
-
-                Instantiate(newEnemySpawnList.Enemy, randomSpawnPoint, Quaternion.identity);
-            }
-        }
+        StartCoroutine(SpawnEnemiesDelay());
     }
 
     public void AddWaveIndex()
@@ -106,7 +95,22 @@ public class WaveController : MonoBehaviour
                         .OfType<T>()
                         .ToArray();
     }
+    private IEnumerator SpawnEnemiesDelay()
+        {
+            List<EnemySpawnList> enemies = _waves[_currentWaveIndex].Enemies;
 
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                EnemySpawnList newEnemySpawnList = enemies[i];
+                for(int j = 0; j < newEnemySpawnList.Amount; j++)
+                {
+                    Vector3 randomSpawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].transform.position;
+
+                    Instantiate(newEnemySpawnList.Enemy, randomSpawnPoint, Quaternion.identity);
+                    yield return new WaitForSeconds(0.3f);
+                }
+            }
+        }
 }
 
 [Serializable]
