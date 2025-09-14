@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public abstract class EnemyAttack : MonoBehaviour
 {
-    private EnemyConfig _enemyConfig;
     private float _range;
 
     protected NavMeshAgent _navMeshAgent;
@@ -23,7 +22,7 @@ public abstract class EnemyAttack : MonoBehaviour
         if (_target == null)
         {
             _target = FindObjectOfType<Castle>().transform;
-            _animator.SetTrigger("Idle");
+            //_animator.SetTrigger("Idle");
         }
         else
         {
