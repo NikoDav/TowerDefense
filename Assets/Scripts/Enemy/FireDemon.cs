@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireDemon : MonoBehaviour
+public class FireDemon : EnemyAttack
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Bullet _fireball;
+    [SerializeField] private Transform _shootPoint;
+    private Bullet _currentBullet;
+    public override void Attack()
     {
-        
+        _elapsedTime += Time.deltaTime;
+        if (_elapsedTime >= _delay)
+        {
+            _elapsedTime = 0;
+            _currentBullet = Instantiate(_fireball, _shootPoint.position, Quaternion.identity);
+            _currentBullet.transform.LookAt(_target.transform);
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void SetNewTarget(Transform unit)
     {
-        
+        throw new System.NotImplementedException();
     }
 }
