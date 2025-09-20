@@ -20,7 +20,11 @@ public class ArcherTower : Tower
         Collider[] enemies = Physics.OverlapSphere(transform.position, tower.Range, _enemyLayer);
         if (enemies.Length > 0)
         {
-            _target = enemies[0].gameObject;
+            if(_target.TryGetComponent(out EnemyHealth enemyHealth))
+            {
+                _target = enemyHealth.gameObject;
+            }
+            
         }
     }
 

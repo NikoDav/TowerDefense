@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &452030764912278625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4332587769353649612}
+  - component: {fileID: 4780584859154325169}
+  - component: {fileID: 6099521963294072776}
+  m_Layer: 3
+  m_Name: EnemyHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4332587769353649612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452030764912278625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.331, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3636531960243625204}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4780584859154325169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452030764912278625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6099521963294072776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452030764912278625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b13412c8f9de1c41af470b415d4ae24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAttack: {fileID: 119332592}
 --- !u!1 &3634557669289190853
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +408,6 @@ GameObject:
   - component: {fileID: 119332596}
   - component: {fileID: 119332592}
   - component: {fileID: 26184659255065557}
-  - component: {fileID: 3072849137912554666}
   - component: {fileID: 7671168557956182392}
   m_Layer: 3
   m_Name: FootSoldier
@@ -372,6 +430,7 @@ Transform:
   m_Children:
   - {fileID: 3636941704442983981}
   - {fileID: 6619954948985271346}
+  - {fileID: 4332587769353649612}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -453,21 +512,8 @@ MonoBehaviour:
   _enemyConfig: {fileID: 11400000, guid: 2fa7a99b36b60834a845a75cb4b1530c, type: 2}
   _enemyAttack: {fileID: 119332592}
   _navMesh: {fileID: 3636531960243625202}
-  _enemyHp: {fileID: 3072849137912554666}
+  _enemyHp: {fileID: 6099521963294072776}
   _animator: {fileID: 7671168557956182392}
---- !u!114 &3072849137912554666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3636531960243625203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b13412c8f9de1c41af470b415d4ae24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyAttack: {fileID: 119332592}
 --- !u!95 &7671168557956182392
 Animator:
   serializedVersion: 5

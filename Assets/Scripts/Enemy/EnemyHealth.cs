@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour, IDestroyable
     public void Initialize(int hp)
     {
         _hp = hp;
+        Debug.Log(transform.parent.gameObject.name);
     }
 
     public void TakeDamage(int amnt)
@@ -17,7 +18,7 @@ public class EnemyHealth : MonoBehaviour, IDestroyable
         _hp -= amnt;
         if(_hp <= 0)
         {
-            Destroy(gameObject);
+            Destroy();
         }
     }
 
@@ -27,6 +28,9 @@ public class EnemyHealth : MonoBehaviour, IDestroyable
     }
     public void Destroy()
     {
-        Destroy(gameObject);
+        if (transform.parent == null)
+            Destroy(gameObject);
+        else
+            Destroy(gameObject.transform.parent.gameObject);
     }
 }

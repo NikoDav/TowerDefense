@@ -7,6 +7,7 @@ public class FireDemon : EnemyAttack
     [SerializeField] private Bullet _fireball;
     [SerializeField] private Transform _shootPoint;
     private Bullet _currentBullet;
+
     public override void Attack()
     {
         _elapsedTime += Time.deltaTime;
