@@ -16,11 +16,12 @@ public class ArcherTower : Tower
     private void FixedUpdate()
     {
         LevelShootingTowerConfig tower = _towerConfig.TowerLevels[_index] as LevelShootingTowerConfig;
+        Debug.Log(tower.Range);
 
         Collider[] enemies = Physics.OverlapSphere(transform.position, tower.Range, _enemyLayer);
         if (enemies.Length > 0)
         {
-            if(_target.TryGetComponent(out EnemyHealth enemyHealth))
+            if(enemies[0].TryGetComponent(out EnemyHealth enemyHealth))
             {
                 _target = enemyHealth.gameObject;
             }
@@ -30,6 +31,7 @@ public class ArcherTower : Tower
 
     private void Update()
     {
+
         base.Update();
         if (_target != null)
         {
