@@ -18,6 +18,7 @@ public class Tower : MonoBehaviour
     protected int _index;
     private Coroutine _meshSwitch;
     private bool _firstClick = true;
+    private bool _isBuilding = false;
 
     public event UnityAction Clicked;
     public event UnityAction Deactivate;
@@ -111,8 +112,12 @@ public class Tower : MonoBehaviour
 
     private IEnumerator MeshSwitch()
     {
+        _levelUpBtn.gameObject.SetActive(false);
+        _isBuilding = true;
         _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].BuildingMesh;
         yield return new WaitForSeconds(_delay);
+        _levelUpBtn.gameObject.SetActive(true);
+        _isBuilding = false;
         _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].FinalMesh;
         _meshSwitch = null;
     }

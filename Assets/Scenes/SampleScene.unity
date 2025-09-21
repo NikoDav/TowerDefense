@@ -33192,20 +33192,25 @@ MonoBehaviour:
     - {fileID: 873626958}
     _waves:
     - {fileID: 11400000, guid: 37bd7a8b4c209294ead1f2456dbb1b92, type: 2}
+    - {fileID: 11400000, guid: 754f9e9f5d2b6c84a887942d89eaa854, type: 2}
+    - {fileID: 11400000, guid: e5487b6933fb5094d87a7eb612bf2e9a, type: 2}
   - _map: {fileID: 882664141}
     _spawnPoints:
     - {fileID: 1282801727}
     - {fileID: 210793998}
     _waves:
-    - {fileID: 11400000, guid: 37bd7a8b4c209294ead1f2456dbb1b92, type: 2}
+    - {fileID: 11400000, guid: b93be11911aaac84a88e7586db96e7b5, type: 2}
+    - {fileID: 11400000, guid: 5bcbe2452464fc34c80d66f5441ebe3e, type: 2}
+    - {fileID: 11400000, guid: 38446c89fb855844da89be66684c1e10, type: 2}
   - _map: {fileID: 1063490983}
     _spawnPoints:
     - {fileID: 978712295}
     - {fileID: 1223374704}
     - {fileID: 603981373}
     _waves:
-    - {fileID: 11400000, guid: 37bd7a8b4c209294ead1f2456dbb1b92, type: 2}
-    - {fileID: 11400000, guid: 754f9e9f5d2b6c84a887942d89eaa854, type: 2}
+    - {fileID: 11400000, guid: 3f3f1e2fb28c96a49a76616375ea4bf1, type: 2}
+    - {fileID: 11400000, guid: 901f18d642239c440b0940fd906e73e1, type: 2}
+    - {fileID: 11400000, guid: e4161a03214104e4b961696951da4125, type: 2}
   _navMeshSurface: {fileID: 332041823}
   _camera: {fileID: 963194228}
   _winPanel: {fileID: 164113186}
