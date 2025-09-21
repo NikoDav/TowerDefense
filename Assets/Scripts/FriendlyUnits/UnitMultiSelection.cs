@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class UnitMultiSelection : MonoBehaviour
 {
+    [SerializeField] private SelectionOutlineController _selectionOutlineController;
     private Vector2 _startPos;
     private Vector2 _endPos;
     private bool _isSelecting;
@@ -63,6 +64,8 @@ public class UnitMultiSelection : MonoBehaviour
     private void SelectUnits()
     {
         _unitsSelected.Clear();
+        _selectionOutlineController.ClearTarget();
+
         foreach(var unit in FindObjectsOfType<UnitControl>())
         {
             Vector3 screenPos = Camera.main.WorldToScreenPoint(unit.transform.position);
@@ -78,6 +81,18 @@ public class UnitMultiSelection : MonoBehaviour
                 unit.Select(false);
             }
         }
+        List<Renderer> renderers = new List<Renderer>();
+        foreach(UnitControl unit in _unitsSelected)
+        {
+            if (unit == null)
+                continue;
+            Renderer r = unit.GetComponent<Renderer>();
+            if(r != null)
+            {
+                renderers.Add(r);
+            }
+        }
+        _selectionOutlineController.SetTargets(renderers);
     }
 
     private void checkClick()

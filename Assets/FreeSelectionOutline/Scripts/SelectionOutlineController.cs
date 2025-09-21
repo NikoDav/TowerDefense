@@ -181,7 +181,7 @@ public class SelectionOutlineController : MonoBehaviour
             Debug.LogWarning("No renderer provided for outline.");
         }
     }
-    void ClearTarget()
+    public void ClearTarget()
     {
         Selected = false;
         cmd.ClearRenderTarget(true, true, Color.black);
@@ -192,46 +192,75 @@ public class SelectionOutlineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        //if (Input.GetMouseButton(0))
+        //{
+        //    Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit hit;
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+
+        //        TargetRenderer = hit.transform.GetComponent<Renderer>();
+        //        if (lastTarget == null) lastTarget = TargetRenderer;
+        //        if (SelectionMode == SelMode.AndChildren)
+        //        {
+        //            if (ChildrenRenderers != null)
+        //            {
+        //                Array.Clear(ChildrenRenderers, 0, ChildrenRenderers.Length);
+        //            }
+        //            ChildrenRenderers = hit.transform.GetComponentsInChildren<Renderer>();
+        //        }
+
+
+        //        if (TargetRenderer != lastTarget || !Selected)
+        //        {
+        //            SetTarget();
+        //        }
+        //        //Debug.DrawRay(transform.position, hit.point - transform.position, Color.blue);
+        //        lastTarget = TargetRenderer;
+        //    }
+        //    else
+        //    {
+        //        TargetRenderer = null;
+        //        lastTarget = null;
+        //        if (Selected)
+        //        {
+        //            ClearTarget();
+        //        }
+        //    }
+        //    //cmd.Blit(OutlineRT,)
+        //}
+        //if (Input.GetMouseButtonUp(0) && Selected)
+        //{
+          //  ClearTarget();
+        //}
+    }
+    
+    public void SetTargets(List<Renderer> targets)
+    {
+        cmd.SetRenderTarget(Mask);
+        cmd.ClearRenderTarget(true, true, Color.black);
+
+        Selected = true;
+
+        foreach (Renderer r in targets)
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (r == null)
+                continue;
+
+            RenderTarget(r);
+
+            if (SelectionMode == SelMode.AndChildren)
             {
+                Renderer[] renderers = r.GetComponentsInChildren<Renderer>();
 
-                TargetRenderer = hit.transform.GetComponent<Renderer>();
-                if (lastTarget == null) lastTarget = TargetRenderer;
-                if (SelectionMode == SelMode.AndChildren)
+                foreach (var ren in renderers)
                 {
-                    if (ChildrenRenderers != null)
-                    {
-                        Array.Clear(ChildrenRenderers, 0, ChildrenRenderers.Length);
-                    }
-                    ChildrenRenderers = hit.transform.GetComponentsInChildren<Renderer>();
-                }
+                    if (ren == r)
+                        continue;
 
-
-                if (TargetRenderer != lastTarget || !Selected)
-                {
-                    SetTarget();
-                }
-                //Debug.DrawRay(transform.position, hit.point - transform.position, Color.blue);
-                lastTarget = TargetRenderer;
-            }
-            else
-            {
-                TargetRenderer = null;
-                lastTarget = null;
-                if (Selected)
-                {
-                    ClearTarget();
+                    RenderTarget(ren);
                 }
             }
-            //cmd.Blit(OutlineRT,)
-        }
-        if (Input.GetMouseButtonUp(0) && Selected)
-        {
-            ClearTarget();
         }
     }
 }
