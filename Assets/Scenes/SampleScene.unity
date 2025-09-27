@@ -18586,13 +18586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e950cacae63d61a4e821edb397a8cd95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectionMode: 1
-  OutlineType: 1
-  AlphaMode: 0
-  OutlineColor: {r: 1, g: 0.55, b: 0, a: 1}
-  OccludedColor: {r: 0.5, g: 0.9, b: 0.3, a: 1}
-  OutlineWidth: 0.2
-  OutlineHardness: 0.85
 --- !u!1 &965182429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1003043302636566, guid: bb0047da546c3034b9370e2043499968, type: 3}
@@ -31564,7 +31557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedc7e15297b4cb4cbea76f3b4be9c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionOutlineController: {fileID: 963194230}
 --- !u!1001 &1602299322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39623,7 +39615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2060188547
 Transform:
   m_ObjectHideFlags: 0

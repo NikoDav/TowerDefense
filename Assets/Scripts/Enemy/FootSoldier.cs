@@ -21,6 +21,7 @@ public class FootSoldier : EnemyAttack
 
     public override void SetNewTarget(Transform unit)
     {
+        _elapsedTime = float.MaxValue;
         _target = unit;
     }
 }

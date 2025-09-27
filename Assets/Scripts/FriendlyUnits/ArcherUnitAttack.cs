@@ -16,6 +16,7 @@ public class ArcherUnitAttack : UnitAttack
             _elapsedTime = 0;
             _currentArrow = Instantiate(_arrow, _shootPoint.position, Quaternion.identity);
             _currentArrow.transform.LookAt(_target.transform);
+            _elapsedTime = float.MaxValue;
             _target.SetNewTarget(this.transform);
             
         }

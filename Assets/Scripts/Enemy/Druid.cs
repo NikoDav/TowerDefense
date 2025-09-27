@@ -20,6 +20,7 @@ public class Druid : EnemyAttack
 
     public override void SetNewTarget(Transform unit)
     {
+        _elapsedTime = float.MaxValue;
         _target = unit;
     }
 

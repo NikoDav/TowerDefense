@@ -22,6 +22,7 @@ public class FireDemon : EnemyAttack
 
     public override void SetNewTarget(Transform unit)
     {
-        throw new System.NotImplementedException();
+        _elapsedTime = float.MaxValue;
+        _target = unit;
     }
 }

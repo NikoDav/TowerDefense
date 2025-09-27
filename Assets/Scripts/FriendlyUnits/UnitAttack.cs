@@ -32,6 +32,7 @@ public abstract class UnitAttack : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, _range, _enemyLayer);
         if (enemies.Length > 0 && _target == null)
         {
+            _elapsedTime = float.MaxValue;
             _target = enemies[0].gameObject.GetComponent<EnemyHealth>();
         }
 
