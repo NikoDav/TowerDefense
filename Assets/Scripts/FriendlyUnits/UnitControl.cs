@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using HighlightPlus;
 
 public class UnitControl : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _navMesh;
+    [SerializeField] private HighlightEffect _highlightEffect;
     private Transform _target;
     private bool _clickSelf;
 
@@ -54,6 +56,7 @@ public class UnitControl : MonoBehaviour
     public void Select(bool select)
     {
         _clickSelf = select;
+        _highlightEffect.SetHighlighted(select);
     }
 
     public void SetDestination(Vector3 targetPos)
