@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour, IDestroyable
     {
         if(other.TryGetComponent(out EnemyHealth enemy))
         {
-            Debug.Log("shot fired");
             enemy.TakeDamage(_damage);
             Instantiate(_shotAudio);
             Destroy(gameObject);

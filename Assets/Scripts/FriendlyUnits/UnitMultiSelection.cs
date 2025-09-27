@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class UnitMultiSelection : MonoBehaviour
 {
-    [SerializeField] private SelectionOutlineController _selectionOutlineController;
+    //[SerializeField] private SelectionOutlineController _selectionOutlineController;
     private Vector2 _startPos;
     private Vector2 _endPos;
     private bool _isSelecting;
@@ -64,7 +64,7 @@ public class UnitMultiSelection : MonoBehaviour
     private void SelectUnits()
     {
         _unitsSelected.Clear();
-        _selectionOutlineController.ClearTarget();
+        //_selectionOutlineController.ClearTarget();
 
         foreach(var unit in FindObjectsOfType<UnitControl>())
         {
@@ -92,7 +92,7 @@ public class UnitMultiSelection : MonoBehaviour
                 renderers.Add(r);
             }
         }
-        _selectionOutlineController.SetTargets(renderers);
+        //_selectionOutlineController.SetTargets(renderers);
     }
 
     private void checkClick()

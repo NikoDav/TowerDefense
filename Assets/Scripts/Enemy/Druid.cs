@@ -11,7 +11,6 @@ public class Druid : EnemyAttack
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime >= _delay)
         {
-            Debug.Log("Vine Attack");
             _animator.SetTrigger("Hit");
             _elapsedTime = 0;
         }

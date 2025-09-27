@@ -14,7 +14,6 @@ public class Titan : EnemyAttack
             opponent.TakeDamage(_damage);
             _animator.SetTrigger("Hit");
             _elapsedTime = 0;
-            Debug.Log("attack");
         }
 
 

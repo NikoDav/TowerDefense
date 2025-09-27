@@ -9,12 +9,10 @@ public class EnemyHealth : MonoBehaviour, IDestroyable
     public void Initialize(int hp)
     {
         _hp = hp;
-        Debug.Log(transform.parent.gameObject.name);
     }
 
     public void TakeDamage(int amnt)
     {
-        Debug.Log("enemy takes damage");
         _hp -= amnt;
         if(_hp <= 0)
         {

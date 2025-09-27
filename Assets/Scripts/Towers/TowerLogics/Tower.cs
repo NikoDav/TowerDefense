@@ -87,7 +87,6 @@ public class Tower : MonoBehaviour
             {
                 if (hit.collider.gameObject == gameObject)
                 {
-                    Debug.Log("click");
                     if (_firstClick)
                         _firstClick = false;
                     else

@@ -484,7 +484,6 @@ namespace Autotiles3D
                 {
                     if (node.Block.IsBaked)
                     {
-                        Debug.Log("Autotiles3D: Will not remove baked blocks.");
                         return;
                     }
                 }

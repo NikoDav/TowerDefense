@@ -15,7 +15,6 @@ public class SwordsmanUnitAttack : UnitAttack
             _target.SetNewTarget(this.transform);
             _animator.SetTrigger("Hit");
             Instantiate(_playAudio);
-            Debug.Log("swordsman attack");
             _elapsedTime = 0;
         }
     }

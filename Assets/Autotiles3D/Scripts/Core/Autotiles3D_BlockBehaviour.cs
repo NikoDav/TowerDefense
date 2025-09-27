@@ -133,7 +133,6 @@ namespace Autotiles3D
 
             if (Mathf.Abs(node.TileID) < 5)
             {
-                Debug.Log("assigning empty tileiD");
             }
 
             this.InternalPosition = node.InternalPosition;

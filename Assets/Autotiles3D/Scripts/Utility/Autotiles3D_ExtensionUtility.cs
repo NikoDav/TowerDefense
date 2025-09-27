@@ -231,7 +231,6 @@ namespace Autotiles3D
             middle += $"\n{neighbors[9]}  {neighbors[10]}  {neighbors[11]}";
             middle += $"\n{neighbors[12]}  {neighbors[13]}  {neighbors[14]}";
             middle += $"\n{neighbors[15]}  {neighbors[16]}  {neighbors[17]}";
-            Debug.Log(middle);
         }
         #endregion
 
@@ -246,10 +245,7 @@ namespace Autotiles3D
                 if (node.Block != null)
                     node.Block.OnInstanceUpdate(node);
             }
-            else
-            {
-                Debug.Log("Autotiles3D: No randomization possible");
-            }
+
         }
 
         public static bool TryRandomize(this InternalNode node, out GameObject random, bool dontAllowSame = true)
@@ -258,7 +254,6 @@ namespace Autotiles3D
 
             if (node.Block.IsBaked)
             {
-                Debug.LogWarning("No Randomization for baked tiles allowed!");
                 return false;
             }
 
@@ -268,7 +263,6 @@ namespace Autotiles3D
             var tile = node.GetTile();
             if (tile == null)
             {
-                Debug.LogError("Tile missing");
                 return false;
             }
 

@@ -30,20 +30,16 @@ public abstract class UnitAttack : MonoBehaviour
     private void Update()
     {
         Collider[] enemies = Physics.OverlapSphere(transform.position, _range, _enemyLayer);
-        Debug.Log(enemies.Length);
         if (enemies.Length > 0 && _target == null)
         {
-            Debug.Log("SetTarget");
             _target = enemies[0].gameObject.GetComponent<EnemyHealth>();
         }
 
         if (_target != null)
         {
-            Debug.Log("SetDestination");
             _agent.SetDestination(_target.transform.position);
             if (Vector3.Distance(transform.position, _target.transform.position) <= _hitRange)
             {
-                Debug.Log("Attack");
                 Attack();
             }
 

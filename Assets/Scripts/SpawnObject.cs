@@ -28,7 +28,6 @@ public class SpawnObject : MonoBehaviour, IDestroyable
     {
         if (!_isSpawned)
         {
-            Debug.Log(Physics.OverlapSphere(transform.position, _radius).Length);
             if (Physics.CheckSphere(transform.position, _radius, _collisionLayer))
             {
                 _canSpawn = false;

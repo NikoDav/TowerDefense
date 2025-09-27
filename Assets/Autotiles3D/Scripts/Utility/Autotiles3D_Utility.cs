@@ -210,11 +210,9 @@ namespace Autotiles3D
                     }
                 }
 
-                Debug.Log($"Autotiles3D: Successfully linked {successes} block(s) with tile {tilename} again");
             }
             else
             {
-                Debug.Log($"No tile with name {tilename} on group {tilegroup} existing!");
             }
         }
 
