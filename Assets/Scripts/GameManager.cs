@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DayNightCycle _dayNightCycle;
     [SerializeField] private WaveController _waveController;
     [SerializeField] private GameObject _shopPanel;
+    [SerializeField] private TowerSpawner _towerSpawner;
 
     private void OnEnable()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     private void OnNightSwitched()
     {
         _waveController.SpawnEnemies();
+        _towerSpawner.ClearSpawnObject();
         _shopPanel.SetActive(false);
         //ChangeUI
         //ChangeLight

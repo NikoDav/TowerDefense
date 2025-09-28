@@ -27333,6 +27333,7 @@ MonoBehaviour:
   _dayNightCycle: {fileID: 772309656}
   _waveController: {fileID: 1709818864}
   _shopPanel: {fileID: 1964954523}
+  _towerSpawner: {fileID: 1379441471}
 --- !u!4 &1357418347
 Transform:
   m_ObjectHideFlags: 0
@@ -39615,7 +39616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2060188547
 Transform:
   m_ObjectHideFlags: 0

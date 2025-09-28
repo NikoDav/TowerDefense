@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private Button _levelUpBtn;
     [SerializeField] private Button _sellBtn;
     [SerializeField] private SpawnObject _spawnObject;
-    protected int _index;
+    protected int _index = -1;
     private Coroutine _meshSwitch;
     private bool _firstClick = true;
     private bool _isBuilding = false;
@@ -53,20 +53,33 @@ public class Tower : MonoBehaviour
     [ContextMenu("LevelUp")]
     public virtual void LevelUp()
     {
-        if (Money.Instance.SpendMoney(_towerConfig.TowerLevels[_index].Cost))
+        if(_index+1 >= _towerConfig.TowerLevels.Count)
+        {
+            return;
+        }
+        if (Money.Instance.SpendMoney(_towerConfig.TowerLevels[_index + 1].Cost))
         {
             if (_meshSwitch != null)
             {
                 return;
             }
+
             _index++;
-            if (_index + 1 >= _towerConfig.TowerLevels.Count)
+
+            if (_index+1 >= _towerConfig.TowerLevels.Count)
             {
+                Debug.Log("Max level");
                 _levelUpBtn.gameObject.SetActive(false);
             }
+            else if (_index + 1 < _towerConfig.TowerLevels.Count)
+            {
+                _upgradePriceText.text = _towerConfig.TowerLevels[_index+1].Cost.ToString();
+            }
 
-            _upgradePriceText.text = _towerConfig.TowerLevels[_index].Cost.ToString();
-            _meshSwitch = StartCoroutine(MeshSwitch());
+            Debug.Log(_index);
+            _meshSwitch = StartCoroutine(MeshSwitch(_index));
+
+
         }
     }
 
@@ -78,7 +91,7 @@ public class Tower : MonoBehaviour
 
     private void CheckClick()
     {
-        if (Input.GetMouseButtonUp(0) && _index>0)
+        if (Input.GetMouseButtonUp(0) && _index>-1)
         {
             if (EventSystem.current.IsPointerOverGameObject())
                 return;
@@ -109,15 +122,15 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private IEnumerator MeshSwitch()
+    private IEnumerator MeshSwitch(int index)
     {
         _levelUpBtn.gameObject.SetActive(false);
         _isBuilding = true;
-        _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].BuildingMesh;
+        _meshFilter.mesh = _towerConfig.TowerLevels[index].BuildingMesh;
         yield return new WaitForSeconds(_delay);
         _levelUpBtn.gameObject.SetActive(true);
         _isBuilding = false;
-        _meshFilter.mesh = _towerConfig.TowerLevels[_index - 1].FinalMesh;
+        _meshFilter.mesh = _towerConfig.TowerLevels[index].FinalMesh;
         _meshSwitch = null;
     }
 

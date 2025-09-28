@@ -49,4 +49,13 @@ public class TowerSpawner : MonoBehaviour
             }
         }
     }
+
+    public void ClearSpawnObject()
+    {
+        if(_spawnObject != null)
+        {
+            Destroy(_spawnObject.gameObject);
+            _spawnObject = null;
+        }
+    }
 }
